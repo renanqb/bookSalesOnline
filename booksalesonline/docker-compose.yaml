@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+
+  postgresdb:
+    image: postgres:10.5
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5438:5432'
+    volumes: 
+      - ./postgres-data:/var/lib/postgresql/data
+      # copy the sql script to create tables
+      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    networks:
+      - postgresdb-network
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "renanvianamarcelino@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin-pass"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgresdb
+    networks:
+      - postgresdb-network
+
+
+networks: 
+  postgresdb-network:
+    driver: bridge

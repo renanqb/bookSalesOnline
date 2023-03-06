@@ -1,4 +1,4 @@
-package com.booksalesonline.booksalesonline;
+package com.renan.booksalesonline;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

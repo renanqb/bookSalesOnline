@@ -19,7 +19,6 @@ jobs:
 
     permissions:
       contents: 'read'
-      id-token: 'write'
       issues: 'write' #__This fixed the HttpError: Resource not accessible by integration
 
     runs-on: ubuntu-latest

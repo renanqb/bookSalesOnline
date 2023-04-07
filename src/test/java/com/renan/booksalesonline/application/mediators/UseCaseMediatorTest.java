@@ -2,13 +2,13 @@ package com.renan.booksalesonline.application.mediators;
 
 import com.renan.booksalesonline.application.ports.in.country.GetAllCountriesUseCase;
 import com.renan.booksalesonline.application.usecases.country.GetAllCountriesUseCaseImpl;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UseCaseMediatorTest {
@@ -39,7 +39,7 @@ public class UseCaseMediatorTest {
     @Test
     public void should_get_an_no_such_method_exception() {
 
-        var ex = Assertions.assertThrows(NoSuchMethodException.class, () -> {
+        var ex = assertThrows(NoSuchMethodException.class, () -> {
             useCaseMediator.<GetAllCountriesUseCase>get(UseCaseType.UNKNOWN);
         });
 

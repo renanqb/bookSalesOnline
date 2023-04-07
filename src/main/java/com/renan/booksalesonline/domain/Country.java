@@ -4,18 +4,18 @@ import com.renan.booksalesonline.domain.commom.BaseDomain;
 
 public class Country extends BaseDomain {
 
-    private String nationality;
+    private String gentilic;
 
-    public Country(int id, String name, String nationality) {
+    public Country(int id, String name, String gentilic) {
         super(id, name);
-        setNationality(nationality);
+        setNationality(gentilic);
     }
 
     public String getNationality() {
-        return nationality;
+        return gentilic;
     }
 
     public void setNationality(String nationality) {
-        this.nationality = nationality;
+        this.gentilic = nationality;
     }
 }

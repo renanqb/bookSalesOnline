@@ -1,4 +1,4 @@
-package com.renan.booksalesonline.application.ports.in;
+package com.renan.booksalesonline.application.ports.in.country;
 
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;

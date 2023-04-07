@@ -2,14 +2,18 @@ package com.renan.booksalesonline.adapters.controllers.v1.commom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public abstract class BaseResponse {
+public abstract class BaseDto {
 
     @JsonProperty("id") protected Object id;
     @JsonProperty("name") protected String name;
 
-    public BaseResponse(Object id, String name) {
-        this.id = id;
+    public BaseDto(String name) {
+        this.id = 0;
         this.name = name;
+    }
+
+    public void setId(Object id) {
+        this.id = id;
     }
 
     public Object getId() {

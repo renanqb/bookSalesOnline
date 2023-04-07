@@ -13,7 +13,7 @@ public class CountryEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "nationality", nullable = false)
+    @Column(name = "gentilic", nullable = false)
     private String nationality;
 
     protected CountryEntity() {

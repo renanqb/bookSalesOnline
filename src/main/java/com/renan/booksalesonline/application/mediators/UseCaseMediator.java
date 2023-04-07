@@ -1,33 +1,38 @@
 package com.renan.booksalesonline.application.mediators;
 
-import com.renan.booksalesonline.application.ports.in.GetAllCountriesUseCase;
-import com.renan.booksalesonline.application.ports.in.GetCountryByIdUseCase;
+import com.renan.booksalesonline.application.ports.in.country.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
 
 @Component
 public class UseCaseMediator {
 
-    private GetAllCountriesUseCase getAllCountriesUseCase;
-    private GetCountryByIdUseCase getCountryByIdUseCase;
+    private HashMap<UseCaseType, Object> useCases = new HashMap<>();;
 
     public UseCaseMediator(
             @Autowired GetAllCountriesUseCase getAllCountriesUseCase,
-            @Autowired GetCountryByIdUseCase getCountryByIdUseCase) {
+            @Autowired GetCountryByIdUseCase getCountryByIdUseCase,
+            @Autowired CreateCountryUseCase createCountryUseCase,
+            @Autowired UpdateCountryUseCase updateCountryUseCase,
+            @Autowired RemoveCountryUseCase removeCountryUseCase) {
 
-        this.getAllCountriesUseCase = getAllCountriesUseCase;
-        this.getCountryByIdUseCase = getCountryByIdUseCase;
+        useCases.put(UseCaseType.COUNTRY_CREATE, createCountryUseCase);
+        useCases.put(UseCaseType.COUNTRY_UPDATE, updateCountryUseCase);
+        useCases.put(UseCaseType.COUNTRY_REMOVE, removeCountryUseCase);
+        useCases.put(UseCaseType.COUNTRY_GET_ALL, getAllCountriesUseCase);
+        useCases.put(UseCaseType.COUNTRY_GET_BY_ID, getCountryByIdUseCase);
     }
 
     @SuppressWarnings("unchecked")
     public <T> T get(UseCaseType useCaseType) throws NoSuchMethodException {
-        switch (useCaseType) {
-            case COUNTRY_GET_ALL:
-                return (T) getAllCountriesUseCase;
-            case COUNTRY_GET_BY_ID:
-                return (T) getCountryByIdUseCase;
-            default:
-                throw new NoSuchMethodException("There is no use case provider");
-        }
+
+        var useCase = (T) useCases.get(useCaseType);
+
+        if (useCase == null)
+            throw new NoSuchMethodException("There is no use case provider");
+
+        return useCase;
     }
 }

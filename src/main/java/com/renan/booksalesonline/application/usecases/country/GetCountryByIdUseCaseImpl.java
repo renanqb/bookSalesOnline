@@ -1,7 +1,7 @@
-package com.renan.booksalesonline.application.usecases;
+package com.renan.booksalesonline.application.usecases.country;
 
-import com.renan.booksalesonline.application.ports.in.GetCountryByIdUseCase;
-import com.renan.booksalesonline.application.ports.out.CountryQuery;
+import com.renan.booksalesonline.application.ports.in.country.GetCountryByIdUseCase;
+import com.renan.booksalesonline.application.ports.out.country.CountryQuery;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

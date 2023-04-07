@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class NotFoundException extends RuntimeException {
 
     public NotFoundException(Class<? extends Object> domainClass, int id) {
-        super(String.format("%s with id = %s can not be found", domainClass, id));
+        super(String.format("%s with id = %s can not be found", domainClass.getSimpleName(), id));
     }
 }

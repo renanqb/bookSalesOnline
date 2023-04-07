@@ -11,7 +11,7 @@ CREATE TABLE language(
 CREATE TABLE country(
     "id" SERIAL PRIMARY KEY, 
     "name" VARCHAR(50) NOT NULL, 
-    "nationality" VARCHAR(255) NOT NULL
+    "gentilic" VARCHAR(255) NOT NULL
 );
 CREATE TABLE subject(
     "id" SERIAL PRIMARY KEY, 
@@ -68,12 +68,12 @@ INSERT INTO public.language("name") VALUES ('Inglês (USA)') ;
 INSERT INTO public.language("name") VALUES ('Inglês (UK)');
 INSERT INTO public.language("name") VALUES ('Japonês');
 
-INSERT INTO public.country("name", "nationality") VALUES ('Inglaterra', 'Inglesa');
-INSERT INTO public.country("name", "nationality") VALUES ('Brasil', 'Brasileira');
-INSERT INTO public.country("name", "nationality") VALUES ('Estados Unidos', 'Americana');
-INSERT INTO public.country("name", "nationality") VALUES ('Portugal', 'Português');
-INSERT INTO public.country("name", "nationality") VALUES ('Japão', 'Japonesa');
-INSERT INTO public.country("name", "nationality") VALUES ('Índia', 'Indiana');
+INSERT INTO public.country("name", "gentilic") VALUES ('Inglaterra', 'Inglesa');
+INSERT INTO public.country("name", "gentilic") VALUES ('Brasil', 'Brasileira');
+INSERT INTO public.country("name", "gentilic") VALUES ('Estados Unidos', 'Americana');
+INSERT INTO public.country("name", "gentilic") VALUES ('Portugal', 'Português');
+INSERT INTO public.country("name", "gentilic") VALUES ('Japão', 'Japonesa');
+INSERT INTO public.country("name", "gentilic") VALUES ('Índia', 'Indiana');
 
 INSERT INTO public.subject("name", "description") VALUES ('Fantasia', '');
 INSERT INTO public.subject("name", "description") VALUES ('Aventura', '');

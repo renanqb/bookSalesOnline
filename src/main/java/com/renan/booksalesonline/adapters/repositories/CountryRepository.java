@@ -2,8 +2,8 @@ package com.renan.booksalesonline.adapters.repositories;
 
 import com.renan.booksalesonline.adapters.repositories.data.CountryData;
 import com.renan.booksalesonline.adapters.repositories.mappers.CountryEntityMapper;
-import com.renan.booksalesonline.application.ports.out.CountryCommand;
-import com.renan.booksalesonline.application.ports.out.CountryQuery;
+import com.renan.booksalesonline.application.ports.out.country.CountryCommand;
+import com.renan.booksalesonline.application.ports.out.country.CountryQuery;
 import com.renan.booksalesonline.domain.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,7 +29,6 @@ public class CountryRepository implements CountryQuery, CountryCommand {
     public Country getById(int id) {
 
         var optCountryEntity = countryData.findById(id);
-
         return optCountryEntity
                 .map(CountryEntityMapper::toDomain)
                 .orElse(null);
@@ -40,13 +39,14 @@ public class CountryRepository implements CountryQuery, CountryCommand {
 
         var countryEntity = CountryEntityMapper.fromDomain(country);
         countryData.save(countryEntity);
-        return CountryEntityMapper.toDomain(countryEntity);
+        country.setId(country.getId());
+        return country;
     }
 
     @Override
-    public void remove(Object id) {
+    public void remove(Country country) {
 
-        var countryEntity = countryData.findById((int)id).get();
+        var countryEntity = CountryEntityMapper.fromDomain(country);
         countryData.delete(countryEntity);
     }
 }

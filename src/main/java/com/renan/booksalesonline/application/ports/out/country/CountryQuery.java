@@ -1,4 +1,4 @@
-package com.renan.booksalesonline.application.ports.out;
+package com.renan.booksalesonline.application.ports.out.country;
 
 import com.renan.booksalesonline.domain.Country;
 

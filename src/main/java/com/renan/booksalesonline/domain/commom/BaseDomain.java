@@ -16,7 +16,7 @@ public abstract class BaseDomain {
     }
 
     public <T> T getId() {
-        return (T)id;
+        return (T) id;
     }
 
     public void setId(Object id) {

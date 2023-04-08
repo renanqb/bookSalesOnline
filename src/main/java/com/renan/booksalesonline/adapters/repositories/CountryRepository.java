@@ -22,7 +22,8 @@ public class CountryRepository implements CountryQuery, CountryCommand {
     @Override
     public List<Country> getAll() {
 
-        return CountryEntityMapper.toDomain(countryData.findAll());
+        var countryEntities = countryData.findAll();
+        return CountryEntityMapper.toDomain(countryEntities);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class CountryRepository implements CountryQuery, CountryCommand {
 
         var countryEntity = CountryEntityMapper.fromDomain(country);
         countryData.save(countryEntity);
-        country.setId(country.getId());
+        country.setId(countryEntity.getId());
         return country;
     }
 

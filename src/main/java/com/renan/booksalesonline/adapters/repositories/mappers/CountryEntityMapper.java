@@ -39,7 +39,7 @@ public class CountryEntityMapper {
         return new CountryEntity(
                 country.getId(),
                 country.getName(),
-                country.getNationality()
+                country.getGentilic()
         );
     }
 }

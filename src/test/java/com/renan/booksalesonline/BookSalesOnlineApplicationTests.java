@@ -1,12 +1,16 @@
 package com.renan.booksalesonline;
 
-import org.junit.jupiter.api.Disabled;
+import org.junit.ClassRule;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testcontainers.containers.PostgreSQLContainer;
 
-@Disabled
 @SpringBootTest
 class BookSalesOnlineApplicationTests {
+
+	@ClassRule
+	public static PostgreSQLContainer postgreSQLContainer
+			= BookSalesOnlineDatabaseContainer.getInstance();
 
 	@Test
 	void contextLoads() {

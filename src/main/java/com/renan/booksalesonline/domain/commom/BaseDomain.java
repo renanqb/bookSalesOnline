@@ -5,14 +5,9 @@ public abstract class BaseDomain {
     private Object id;
     private String name;
 
-    public BaseDomain() {
-        this.id = 0;
-        this.name = "";
-    }
-
-    public BaseDomain(Object id, String name) {
-        this.id = id;
-        this.name = name;
+   public BaseDomain(Object id, String name) {
+        setId(id);
+        setName(name);
     }
 
     public <T> T getId() {

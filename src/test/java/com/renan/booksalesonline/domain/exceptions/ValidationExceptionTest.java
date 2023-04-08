@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UpdateExceptionTest {
+public class ValidationExceptionTest {
 
     @Test
-    public void should_create_an_update_exception() {
+    public void should_create_a_validation_exception() {
 
-        var exception = new UpdateException(Country.class, 99);
+        var exception = new ValidationException(Country.class);
 
         assertThat(exception.getMessage())
-                .isEqualTo("Country with id = 99 not exists to be updated");
+                .isEqualTo("Country has validation problems");
     }
 }

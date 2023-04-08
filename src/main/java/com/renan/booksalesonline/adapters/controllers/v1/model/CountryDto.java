@@ -5,14 +5,14 @@ import com.renan.booksalesonline.adapters.controllers.v1.commom.BaseDto;
 
 public class CountryDto extends BaseDto {
 
-    @JsonProperty("gentilic") private String nationality;
+    @JsonProperty("gentilic") private String gentilic;
 
-    public CountryDto(String name, String nationality) {
+    public CountryDto(String name, String gentilic) {
         super(name);
-        this.nationality = nationality;
+        this.gentilic = gentilic;
     }
 
     public String getNationality() {
-        return nationality;
+        return gentilic;
     }
 }

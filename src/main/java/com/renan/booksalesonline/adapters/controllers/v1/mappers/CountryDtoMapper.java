@@ -18,7 +18,7 @@ public class CountryDtoMapper {
     }
     public static CountryDto fromDomain(Country country) {
 
-        var countryDto = new CountryDto(country.getName(), country.getNationality());
+        var countryDto = new CountryDto(country.getName(), country.getGentilic());
         countryDto.setId(country.getId());
 
         return countryDto;

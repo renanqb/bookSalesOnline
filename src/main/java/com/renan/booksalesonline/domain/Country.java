@@ -8,14 +8,14 @@ public class Country extends BaseDomain {
 
     public Country(int id, String name, String gentilic) {
         super(id, name);
-        setNationality(gentilic);
+        setGentilic(gentilic);
     }
 
-    public String getNationality() {
+    public String getGentilic() {
         return gentilic;
     }
 
-    public void setNationality(String nationality) {
-        this.gentilic = nationality;
+    public void setGentilic(String gentilic) {
+        this.gentilic = gentilic;
     }
 }

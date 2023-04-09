@@ -22,40 +22,51 @@ public class CountryControllerFunctionalTest {
     private Country argentina = new Country(0, "argentina", "argentinian");
     private Country brazil = new Country(0, "brazil", "brazilian");
     private Country chile = new Country(0, "chile", "chilean");
+    private int createdCountryId = 0;
+
+    @BeforeAll
+    @Transactional
+    public void init() {
+
+        countryRepository.save(argentina);
+        countryRepository.save(brazil);
+        countryRepository.save(chile);
+    }
 
     @Test
     @Order(1)
     public void should_create_a_country_successfully() throws NoSuchMethodException {
 
-        var mexicoA = new CountryDto("mexico_a", "mexican_a");
-        var countryResponse = countryController.create(mexicoA);
+        var usa = new CountryDto("usa_a", "usa_a");
+        var countryResponse = countryController.create(usa);
+        createdCountryId = (int) countryResponse.getId();
 
-        assertThat(countryResponse.getId()).isEqualTo(4);
-        assertThat(countryResponse.getName()).isEqualTo("mexico_a");
-        assertThat(countryResponse.getGentilic()).isEqualTo("mexican_a");
+        assertThat(countryResponse.getId()).isInstanceOfAny(Integer.class);
+        assertThat(countryResponse.getName()).isEqualTo("usa_a");
+        assertThat(countryResponse.getGentilic()).isEqualTo("usa_a");
     }
 
     @Test
     @Order(2)
     public void should_update_created_country_successfully() throws NoSuchMethodException {
 
-        var mexicoB = new CountryDto("mexico", "mexican");
-        var countryResponse = countryController.update(4, mexicoB);
+        var usa = new CountryDto("USA", "American");
+        var countryResponse = countryController.update(createdCountryId, usa);
 
-        assertThat(countryResponse.getId()).isEqualTo(4);
-        assertThat(countryResponse.getName()).isEqualTo("mexico");
-        assertThat(countryResponse.getGentilic()).isEqualTo("mexican");
+        assertThat(countryResponse.getId()).isEqualTo(createdCountryId);
+        assertThat(countryResponse.getName()).isEqualTo("USA");
+        assertThat(countryResponse.getGentilic()).isEqualTo("American");
     }
 
     @Test
     @Order(3)
     public void should_get_by_id_created_country_successfully() throws NoSuchMethodException {
 
-        var countryResponse = countryController.getCountryById(4);
+        var countryResponse = countryController.getCountryById(createdCountryId);
 
-        assertThat(countryResponse.getId()).isEqualTo(4);
-        assertThat(countryResponse.getName()).isEqualTo("mexico");
-        assertThat(countryResponse.getGentilic()).isEqualTo("mexican");
+        assertThat(countryResponse.getId()).isEqualTo(createdCountryId);
+        assertThat(countryResponse.getName()).isEqualTo("USA");
+        assertThat(countryResponse.getGentilic()).isEqualTo("American");
     }
 
     @Test
@@ -63,7 +74,7 @@ public class CountryControllerFunctionalTest {
     public void should_remove_created_country_successfully() throws NoSuchMethodException {
 
         assertDoesNotThrow(() -> {
-            countryController.remove(4);
+            countryController.remove(createdCountryId);
         });
     }
 
@@ -76,15 +87,9 @@ public class CountryControllerFunctionalTest {
         assertThat(countryResponse.size()).isEqualTo(3);
     }
 
-    @BeforeAll
-    @Transactional
-    public void init() {
 
-        countryRepository.save(argentina);
-        countryRepository.save(brazil);
-        countryRepository.save(chile);
-    }
     @AfterAll
+    @Transactional
     public void tearDown() {
 
         countryRepository.remove(argentina);

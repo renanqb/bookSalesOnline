@@ -6,6 +6,10 @@ public class Country extends BaseDomain {
 
     private String gentilic;
 
+    public Country(int id) {
+        this(id, "", "");
+    }
+
     public Country(int id, String name, String gentilic) {
         super(id, name);
         setGentilic(gentilic);

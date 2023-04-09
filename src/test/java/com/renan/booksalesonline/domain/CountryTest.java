@@ -13,7 +13,7 @@ public class CountryTest {
         var expected = new CountryEntity(99, "Brazil", "Brazilian");
         assertThat(expected.getId()).isEqualTo(99);
         assertThat(expected.getName()).isEqualTo("Brazil");
-        assertThat(expected.getNationality()).isEqualTo("Brazilian");
+        assertThat(expected.getGentilic()).isEqualTo("Brazilian");
 
     }
 }

@@ -41,14 +41,14 @@ public class CountryDtoMapperTest {
     public void should_parse_country_entities_to_countries() {
 
         var entities = Arrays.asList(
-                new Country(1, "name1", "nationality1"),
-                new Country(2, "name2", "nationality2"),
-                new Country(3, "name3", "nationality3")
+                new Country(1, "name1", "gentilic1"),
+                new Country(2, "name2", "gentilic2"),
+                new Country(3, "name3", "gentilic3")
         );
         var expected = Arrays.asList(
-                new CountryDto("name1", "nationality1"),
-                new CountryDto("name2", "nationality2"),
-                new CountryDto("name3", "nationality3")
+                new CountryDto("name1", "gentilic1"),
+                new CountryDto("name2", "gentilic2"),
+                new CountryDto("name3", "gentilic3")
         );
         expected.get(0).setId(1);
         expected.get(1).setId(2);

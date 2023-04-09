@@ -13,7 +13,7 @@ public class CountryDtoMapper {
         return new Country(
                 (int)countryRequest.getId(),
                 countryRequest.getName(),
-                countryRequest.getNationality()
+                countryRequest.getGentilic()
         );
     }
     public static CountryDto fromDomain(Country country) {

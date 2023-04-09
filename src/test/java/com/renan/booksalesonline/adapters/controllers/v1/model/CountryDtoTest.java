@@ -12,6 +12,6 @@ public class CountryDtoTest {
         var expected = new CountryDto("Brazil", "Brazilian");
         assertThat(expected.getId()).isEqualTo(0);
         assertThat(expected.getName()).isEqualTo("Brazil");
-        assertThat(expected.getNationality()).isEqualTo("Brazilian");
+        assertThat(expected.getGentilic()).isEqualTo("Brazilian");
     }
 }

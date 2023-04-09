@@ -14,16 +14,16 @@ public class CountryEntity {
     private String name;
 
     @Column(name = "gentilic", nullable = false)
-    private String nationality;
+    private String gentilic;
 
     protected CountryEntity() {
         this(0, "", "");
     }
 
-    public CountryEntity(int id, String name, String nationality) {
+    public CountryEntity(int id, String name, String gentilic) {
         setId(id);
         setName(name);
-        setNationality(nationality);
+        setGentilic(gentilic);
     }
 
     public int getId() {
@@ -42,11 +42,11 @@ public class CountryEntity {
         this.name = name;
     }
 
-    public String getNationality() {
-        return nationality;
+    public String getGentilic() {
+        return gentilic;
     }
 
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
+    public void setGentilic(String gentilic) {
+        this.gentilic = gentilic;
     }
 }

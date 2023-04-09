@@ -19,9 +19,9 @@ public class CountryControllerFunctionalTest {
     @Autowired private CountryRepository countryRepository;
     @Autowired private CountryController countryController;
 
-    private Country argentina = new Country(1, "argentina", "argentinian");
-    private Country brazil = new Country(2, "brazil", "brazilian");
-    private Country chile = new Country(3, "chile", "chilean");
+    private Country argentina = new Country(0, "argentina", "argentinian");
+    private Country brazil = new Country(0, "brazil", "brazilian");
+    private Country chile = new Country(0, "chile", "chilean");
 
     @Test
     @Order(1)
@@ -32,7 +32,7 @@ public class CountryControllerFunctionalTest {
 
         assertThat(countryResponse.getId()).isEqualTo(4);
         assertThat(countryResponse.getName()).isEqualTo("mexico_a");
-        assertThat(countryResponse.getNationality()).isEqualTo("mexican_a");
+        assertThat(countryResponse.getGentilic()).isEqualTo("mexican_a");
     }
 
     @Test
@@ -44,7 +44,7 @@ public class CountryControllerFunctionalTest {
 
         assertThat(countryResponse.getId()).isEqualTo(4);
         assertThat(countryResponse.getName()).isEqualTo("mexico");
-        assertThat(countryResponse.getNationality()).isEqualTo("mexican");
+        assertThat(countryResponse.getGentilic()).isEqualTo("mexican");
     }
 
     @Test
@@ -55,7 +55,7 @@ public class CountryControllerFunctionalTest {
 
         assertThat(countryResponse.getId()).isEqualTo(4);
         assertThat(countryResponse.getName()).isEqualTo("mexico");
-        assertThat(countryResponse.getNationality()).isEqualTo("mexican");
+        assertThat(countryResponse.getGentilic()).isEqualTo("mexican");
     }
 
     @Test

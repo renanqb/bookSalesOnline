@@ -23,8 +23,8 @@ public class CountryEntityMapperTest {
     @Test
     public void should_parse_country_entity_to_country_domain() {
 
-        var entity = new CountryEntity(1, "name", "nationality");
-        var expected = new Country(1, "name", "nationality");
+        var entity = new CountryEntity(1, "name", "gentilic");
+        var expected = new Country(1, "name", "gentilic");
         var actual = CountryEntityMapper.toDomain(entity);
 
         assertThat(actual)
@@ -43,8 +43,8 @@ public class CountryEntityMapperTest {
     @Test
     public void should_parse_country_domain_to_country_entity() {
 
-        var domain = new Country(1, "name", "nationality");
-        var expected = new CountryEntity(1, "name", "nationality");
+        var domain = new Country(1, "name", "gentilic");
+        var expected = new CountryEntity(1, "name", "gentilic");
         var actual = CountryEntityMapper.fromDomain(domain);
 
         assertThat(actual)
@@ -64,14 +64,14 @@ public class CountryEntityMapperTest {
     public void should_parse_country_entities_to_countries() {
 
         var entities = Arrays.asList(
-                new CountryEntity(1, "name1", "nationality1"),
-                new CountryEntity(2, "name2", "nationality2"),
-                new CountryEntity(3, "name3", "nationality3")
+                new CountryEntity(1, "name1", "gentilic1"),
+                new CountryEntity(2, "name2", "gentilic2"),
+                new CountryEntity(3, "name3", "gentilic3")
         );
         var expected = Arrays.asList(
-                new Country(1, "name1", "nationality1"),
-                new Country(2, "name2", "nationality2"),
-                new Country(3, "name3", "nationality3")
+                new Country(1, "name1", "gentilic1"),
+                new Country(2, "name2", "gentilic2"),
+                new Country(3, "name3", "gentilic3")
         );
         var actual = CountryEntityMapper.toDomain(entities);
 

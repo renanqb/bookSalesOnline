@@ -12,7 +12,7 @@ public class CountryEntityTest {
         var expected = new CountryEntity();
         assertThat(expected.getId()).isEqualTo(0);
         assertThat(expected.getName()).isEqualTo("");
-        assertThat(expected.getNationality()).isEqualTo("");
+        assertThat(expected.getGentilic()).isEqualTo("");
 
     }
 
@@ -22,7 +22,7 @@ public class CountryEntityTest {
         var expected = new CountryEntity(99, "Brazil", "Brazilian");
         assertThat(expected.getId()).isEqualTo(99);
         assertThat(expected.getName()).isEqualTo("Brazil");
-        assertThat(expected.getNationality()).isEqualTo("Brazilian");
+        assertThat(expected.getGentilic()).isEqualTo("Brazilian");
 
     }
 }

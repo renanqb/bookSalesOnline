@@ -17,7 +17,7 @@ public class CountryEntityMapper {
         return new Country(
                 countryEntity.getId(),
                 countryEntity.getName(),
-                countryEntity.getNationality()
+                countryEntity.getGentilic()
         );
     }
 

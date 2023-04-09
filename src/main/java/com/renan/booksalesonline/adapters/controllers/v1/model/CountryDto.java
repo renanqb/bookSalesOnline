@@ -12,7 +12,7 @@ public class CountryDto extends BaseDto {
         this.gentilic = gentilic;
     }
 
-    public String getNationality() {
+    public String getGentilic() {
         return gentilic;
     }
 }

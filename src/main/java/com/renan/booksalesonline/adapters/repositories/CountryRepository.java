@@ -2,8 +2,8 @@ package com.renan.booksalesonline.adapters.repositories;
 
 import com.renan.booksalesonline.adapters.repositories.data.CountryData;
 import com.renan.booksalesonline.adapters.repositories.mappers.CountryEntityMapper;
-import com.renan.booksalesonline.application.ports.out.country.CountryCommand;
-import com.renan.booksalesonline.application.ports.out.country.CountryQuery;
+import com.renan.booksalesonline.application.ports.out.DataCommand;
+import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.domain.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CountryRepository implements CountryQuery, CountryCommand {
+public class CountryRepository implements DataQuery<Country>, DataCommand<Country> {
 
     private CountryData countryData;
 

@@ -1,10 +1,13 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.CountryDtoMapper;
+import com.renan.booksalesonline.adapters.controllers.v1.mappers.LanguageDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
+import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
 import com.renan.booksalesonline.application.ports.in.*;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.domain.Country;
+import com.renan.booksalesonline.domain.Language;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,72 +16,72 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class CountryController {
+public class LanguageController {
 
     private final UseCaseMediator mediator;
 
-    public CountryController(@Autowired UseCaseMediator mediator) {
+    public LanguageController(@Autowired UseCaseMediator mediator) {
         this.mediator = mediator;
     }
 
-    @GetMapping("/countries")
+    @GetMapping("/languages")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<CountryDto> getAllCountries() throws NoSuchMethodException {
+    public List<LanguageDto> getAllCountries() throws NoSuchMethodException {
 
-        var countries = mediator
+        var languages = mediator
                 .get(GetAllEntitiesUseCase.class)
-                .execute(Country.class);
+                .execute(Language.class);
 
-        return CountryDtoMapper.fromDomain(countries);
+        return LanguageDtoMapper.fromDomain(languages);
     }
 
-    @GetMapping("/countries/{id}")
+    @GetMapping("/languages/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public CountryDto getCountryById(
+    public LanguageDto getCountryById(
             @PathVariable("id") int id
     ) throws NotFoundException, NoSuchMethodException {
 
         var country = mediator
                 .get(GetEntityByIdUseCase.class)
-                .execute(Country.class, id);
+                .execute(Language.class, id);
 
-        return CountryDtoMapper.fromDomain(country);
+        return LanguageDtoMapper.fromDomain(country);
     }
 
-    @PostMapping("/countries")
+    @PostMapping("/languages")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public CountryDto create(
-            @RequestBody CountryDto countryRequest
+    public LanguageDto create(
+            @RequestBody LanguageDto languageRequest
     ) throws NoSuchMethodException {
 
-        var country = CountryDtoMapper.toDomain(countryRequest);
-        var createdCountry = mediator
+        var country = LanguageDtoMapper.toDomain(languageRequest);
+        var createLanguage = mediator
                 .get(CreateEntityUseCase.class)
-                .execute(Country.class, country);
+                .execute(Language.class, country);
 
-        return CountryDtoMapper.fromDomain(createdCountry);
+        return LanguageDtoMapper.fromDomain(createLanguage);
     }
 
-    @PutMapping("/countries/{id}")
+    @PutMapping("/languages/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public CountryDto update(
+    public LanguageDto update(
             @PathVariable int id,
-            @RequestBody CountryDto countryRequest
+            @RequestBody LanguageDto languageRequest
     ) throws NoSuchMethodException {
 
-        var country = CountryDtoMapper.toDomain(countryRequest);
-        var createdCountry = mediator
+        var language = LanguageDtoMapper.toDomain(languageRequest);
+        var createdLanguage = mediator
                 .get(UpdateEntityUseCase.class)
-                .execute(Country.class, country, id);
+                .execute(Language.class, language, id);
 
-        return CountryDtoMapper.fromDomain(createdCountry);
+        return LanguageDtoMapper.fromDomain(createdLanguage);
     }
 
-    @DeleteMapping("/countries/{id}")
+    @DeleteMapping("/languages/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void remove(@PathVariable int id) throws NoSuchMethodException {
 
         mediator.get(RemoveEntityUseCase.class)
-                .execute(Country.class, id);
+                .execute(Language.class, id);
     }
 }

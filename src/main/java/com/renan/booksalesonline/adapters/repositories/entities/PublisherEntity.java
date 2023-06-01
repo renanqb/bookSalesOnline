@@ -17,13 +17,8 @@ public class PublisherEntity {
     @Column(name = "history", nullable = false)
     private String history;
 
-    @OneToOne
-    @JoinColumn(
-            name = "id_country",
-            referencedColumnName = "id",
-            nullable = false,
-            foreignKey = @ForeignKey(name = "fk_publisher_country")
-    )
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_country", referencedColumnName = "id")
     private CountryEntity country;
 
     protected PublisherEntity() {

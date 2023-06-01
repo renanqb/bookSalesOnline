@@ -53,7 +53,7 @@ public class CountryEntityMapperTest {
     }
 
     @Test
-    public void should_return_empty_list_when_domain_list_is_null() {
+    public void should_return_country_empty_list_when_domain_list_is_null() {
 
         assertThat(CountryEntityMapper.toDomain((List<CountryEntity>) null))
                 .usingRecursiveComparison()

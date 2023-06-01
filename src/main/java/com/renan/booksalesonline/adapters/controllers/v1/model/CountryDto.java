@@ -7,6 +7,8 @@ public class CountryDto extends BaseDto {
 
     @JsonProperty("gentilic") private String gentilic;
 
+     CountryDto() { super(""); }
+
     public CountryDto(String name, String gentilic) {
         super(name);
         this.gentilic = gentilic;

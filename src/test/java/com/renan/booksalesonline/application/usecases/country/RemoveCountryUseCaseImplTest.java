@@ -1,9 +1,10 @@
 package com.renan.booksalesonline.application.usecases.country;
 
-import com.renan.booksalesonline.application.ports.out.country.CountryCommand;
-import com.renan.booksalesonline.application.ports.out.country.CountryQuery;
-import com.renan.booksalesonline.domain.Country;
-import com.renan.booksalesonline.domain.exceptions.RemoveException;
+import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.usecases.RemoveEntityUseCase;
+import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQuery;
+import com.renan.booksalesonline.domain.Publisher;
+import com.renan.booksalesonline.domain.exceptions.ValidationException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,29 +21,29 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class RemoveCountryUseCaseImplTest {
 
-    @Mock private CountryQuery queryRepository;
-    @Mock private CountryCommand commandRepository;
-    @InjectMocks private RemoveCountryUseCaseImpl removeCountryUseCaseImpl;
+    @Mock private PublisherDataQuery publisherDataQuery;
+    @Mock private RepositoryMediator repositoryMediator;
+    @Mock private RemoveEntityUseCase removeEntityUseCase;
+    @InjectMocks private RemoveCountryUseCaseImpl removeCountryUseCase;
 
     @Test
-    public void should_remove_a_country_successfully() {
+    public void should_remove_a_country_whether_it_is_not_being_referenced() throws NoSuchMethodException {
 
-        var mockedCountry = new Country(1, "name", "gentilic");
-        when(queryRepository.getById(anyInt())).thenReturn(mockedCountry);
-        doNothing().when(commandRepository).remove(any(Country.class));
+        when(repositoryMediator.getQuery(Publisher.class)).thenReturn(publisherDataQuery);
+        when(publisherDataQuery.existsPublisherByCountryId(anyInt())).thenReturn(false);
+        doNothing().when(removeEntityUseCase).execute(any(), anyInt());
 
         assertDoesNotThrow(() -> {
-            removeCountryUseCaseImpl.execute(1);
+            removeCountryUseCase.execute(1);
         });
     }
 
     @Test
-    public void should_not_remove_a_country_and_throws() {
+    public void should_not_remove_a_country_whether_it_is_being_referenced() throws NoSuchMethodException {
 
-        when(queryRepository.getById(anyInt())).thenReturn(null);
+        when(repositoryMediator.getQuery(Publisher.class)).thenReturn(publisherDataQuery);
+        when(publisherDataQuery.existsPublisherByCountryId(anyInt())).thenReturn(true);
 
-        assertThrows(RemoveException.class, () -> {
-            removeCountryUseCaseImpl.execute(1);
-        });
+        assertThrows(ValidationException.class, () -> removeCountryUseCase.execute(1));
     }
 }

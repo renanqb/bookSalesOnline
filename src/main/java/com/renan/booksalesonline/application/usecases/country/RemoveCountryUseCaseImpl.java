@@ -1,35 +1,38 @@
 package com.renan.booksalesonline.application.usecases.country;
 
-import com.renan.booksalesonline.application.ports.in.country.RemoveCountryUseCase;
-import com.renan.booksalesonline.application.ports.out.country.CountryCommand;
-import com.renan.booksalesonline.application.ports.out.country.CountryQuery;
+import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.usecases.RemoveEntityUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
+import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQuery;
 import com.renan.booksalesonline.domain.Country;
-import com.renan.booksalesonline.domain.exceptions.RemoveException;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.renan.booksalesonline.domain.Publisher;
+import com.renan.booksalesonline.domain.exceptions.ValidationException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RemoveCountryUseCaseImpl implements RemoveCountryUseCase {
 
-    private CountryCommand countryCommRepository;
-    private CountryQuery countryQueryRepository;
+    private final RepositoryMediator repositoryMediator;
+    private final RemoveEntityUseCase removeEntityUseCase;
 
     public RemoveCountryUseCaseImpl(
-            @Autowired CountryCommand countryCommRepository,
-            @Autowired CountryQuery countryQueryRepository
+            RepositoryMediator repositoryMediator,
+            RemoveEntityUseCase removeEntityUseCase
     ) {
-        this.countryCommRepository = countryCommRepository;
-        this.countryQueryRepository = countryQueryRepository;
+        this.repositoryMediator = repositoryMediator;
+        this.removeEntityUseCase = removeEntityUseCase;
     }
 
     @Override
-    public void execute(int id) {
+    public void execute(int id) throws NoSuchMethodException {
 
-        var persistedCountry = countryQueryRepository.getById(id);
+        var query = (PublisherDataQuery) repositoryMediator.getQuery(Publisher.class);
+        var anyPublisher = query.existsPublisherByCountryId(id);
 
-        if (persistedCountry == null)
-            throw new RemoveException(Country.class, id);
+        if (anyPublisher) {
+            throw new ValidationException(Publisher.class);
+        }
 
-        countryCommRepository.remove(persistedCountry);
+        removeEntityUseCase.execute(Country.class, id);
     }
 }

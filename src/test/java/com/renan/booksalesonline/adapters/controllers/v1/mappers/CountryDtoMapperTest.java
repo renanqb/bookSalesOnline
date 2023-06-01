@@ -45,14 +45,14 @@ public class CountryDtoMapperTest {
                 new Country(2, "name2", "gentilic2"),
                 new Country(3, "name3", "gentilic3")
         );
-        var expected = Arrays.asList(
+        var expected = new CountryDto[] {
                 new CountryDto("name1", "gentilic1"),
                 new CountryDto("name2", "gentilic2"),
                 new CountryDto("name3", "gentilic3")
-        );
-        expected.get(0).setId(1);
-        expected.get(1).setId(2);
-        expected.get(2).setId(3);
+        };
+        expected[0].setId(1);
+        expected[1].setId(2);
+        expected[2].setId(3);
 
         var actual = CountryDtoMapper.fromDomain(entities);
 

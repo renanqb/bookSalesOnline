@@ -1,5 +1,6 @@
 package com.renan.booksalesonline.adapters.controllers.v1.mappers;
 
+import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
 import com.renan.booksalesonline.adapters.controllers.v1.model.PublisherDto;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.Publisher;
@@ -8,6 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PublisherDtoMapper {
+
+    private PublisherDtoMapper() { }
 
     public static Publisher toDomain(PublisherDto publisherRequest) {
 
@@ -31,10 +34,10 @@ public class PublisherDtoMapper {
         return publisherDto;
     }
 
-    public static List<PublisherDto> fromDomain(List<Publisher> publishers) {
+    public static PublisherDto[] fromDomain(List<Publisher> publishers) {
 
         return publishers.stream()
                 .map(PublisherDtoMapper::fromDomain)
-                .collect(Collectors.toList());
+                .toArray(PublisherDto[]::new);
     }
 }

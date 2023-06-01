@@ -2,7 +2,16 @@ version: '3.4'
 
 services:
 
-  postgresdb:
+#  app:
+#    build: .
+#    ports:
+#      - "8081:8080"
+#    depends_on:
+#      - postgres
+#    networks:
+#      - booksalesonline-network
+
+  postgres:
     image: postgres:15.2
     restart: always
     environment:
@@ -19,22 +28,20 @@ services:
       # copy the sql script to create tables
       - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     networks:
-      - postgresdb-network
+      - booksalesonline-network
 
+#  pgadmin:
+#    image: dpage/pgadmin4:6.20
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "renanvianamarcelino@gmail.com"
+#      PGADMIN_DEFAULT_PASSWORD: "pgadmin-pass"
+#    ports:
+#      - "16543:80"
+#    depends_on:
+#      - postgres
+#    networks:
+#      - booksalesonline-network
 
-  pgadmin:
-    image: dpage/pgadmin4:6.20
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "renanvianamarcelino@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "pgadmin-pass"
-    ports:
-      - "16543:80"
-    depends_on:
-      - postgresdb
-    networks:
-      - postgresdb-network
-
-
-networks: 
-  postgresdb-network:
+networks:
+  booksalesonline-network:
     driver: bridge

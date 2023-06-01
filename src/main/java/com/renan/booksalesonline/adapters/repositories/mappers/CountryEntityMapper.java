@@ -2,12 +2,15 @@ package com.renan.booksalesonline.adapters.repositories.mappers;
 
 import com.renan.booksalesonline.adapters.repositories.entities.CountryEntity;
 import com.renan.booksalesonline.domain.Country;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CountryEntityMapper {
+
+    private CountryEntityMapper() { }
 
     public static Country toDomain(CountryEntity countryEntity) {
 

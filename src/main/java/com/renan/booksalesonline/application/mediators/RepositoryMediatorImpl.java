@@ -7,6 +7,7 @@ import com.renan.booksalesonline.application.ports.out.base.DataCommandQuery;
 import com.renan.booksalesonline.application.ports.out.publication.PublicationDataQuery;
 import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQuery;
 import com.renan.booksalesonline.domain.Country;
+import com.renan.booksalesonline.domain.Language;
 import com.renan.booksalesonline.domain.Publication;
 import com.renan.booksalesonline.domain.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,18 @@ public class RepositoryMediatorImpl implements RepositoryMediator {
             @Autowired DataCommand<Country> countryCommand,
             @Autowired PublisherDataQuery publisherQuery,
             @Autowired DataCommand<Publisher> publisherCommand,
-            @Autowired PublicationDataQuery publicationDataQuery) {
+            @Autowired PublicationDataQuery publicationDataQuery,
+            @Autowired DataQuery<Language> languageQuery,
+            @Autowired DataCommand<Language> languageCommand) {
 
         queries.put(Country.class, countryQuery);
         queries.put(Publisher.class, publisherQuery);
         queries.put(Publication.class, publicationDataQuery);
+        queries.put(Language.class, languageQuery);
 
         commands.put(Country.class, countryCommand);
         commands.put(Publisher.class, publisherCommand);
+        commands.put(Language.class, languageCommand);
     }
 
     @Override

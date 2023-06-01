@@ -5,12 +5,9 @@ import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.domain.Language;
-import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class LanguageController {
@@ -34,9 +31,7 @@ public class LanguageController {
 
     @GetMapping("/languages/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public LanguageDto getCountryById(
-            @PathVariable("id") int id
-    ) throws NotFoundException, NoSuchMethodException {
+    public LanguageDto getCountryById(@PathVariable("id") int id) throws NoSuchMethodException {
 
         var country = mediator
                 .get(GetEntityByIdUseCase.class)
@@ -47,9 +42,7 @@ public class LanguageController {
 
     @PostMapping("/languages")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public LanguageDto create(
-            @RequestBody LanguageDto languageRequest
-    ) throws NoSuchMethodException {
+    public LanguageDto create(@RequestBody LanguageDto languageRequest) throws NoSuchMethodException {
 
         var country = LanguageDtoMapper.toDomain(languageRequest);
         var createLanguage = mediator
@@ -61,10 +54,8 @@ public class LanguageController {
 
     @PutMapping("/languages/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public LanguageDto update(
-            @PathVariable int id,
-            @RequestBody LanguageDto languageRequest
-    ) throws NoSuchMethodException {
+    public LanguageDto update(@PathVariable int id,@RequestBody LanguageDto languageRequest)
+            throws NoSuchMethodException {
 
         var language = LanguageDtoMapper.toDomain(languageRequest);
         var createdLanguage = mediator

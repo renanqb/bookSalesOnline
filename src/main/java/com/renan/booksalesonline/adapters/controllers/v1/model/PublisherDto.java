@@ -9,6 +9,10 @@ public class PublisherDto extends BaseDto {
     @JsonProperty("history") private String history;
     @JsonProperty("country") private ValueObjectDto country;
 
+    public PublisherDto() {
+        this("", "", null);
+    }
+
     public PublisherDto(String name, String history, CountryDto country) {
         super(name);
         this.history = history;

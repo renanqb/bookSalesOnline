@@ -12,12 +12,9 @@ import com.renan.booksalesonline.application.ports.in.usecases.UpdateEntityUseCa
 import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
 import com.renan.booksalesonline.domain.Country;
-import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class CountryController {
@@ -41,9 +38,7 @@ public class CountryController {
 
     @GetMapping("/countries/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public CountryDto getCountryById(
-            @PathVariable("id") int id
-    ) throws NotFoundException, NoSuchMethodException {
+    public CountryDto getCountryById(@PathVariable("id") int id) throws NoSuchMethodException {
 
         var country = mediator
                 .get(GetEntityByIdUseCase.class)
@@ -54,9 +49,8 @@ public class CountryController {
 
     @GetMapping("/countries/{id}/publishers")
     @ResponseStatus(value = HttpStatus.OK)
-    public PublisherDto[] getPublishersByCountryId(
-            @PathVariable("id") int countryId
-    ) throws NotFoundException, NoSuchMethodException {
+    public PublisherDto[] getPublishersByCountryId(@PathVariable("id") int countryId)
+            throws NoSuchMethodException {
 
         var publishers = mediator
                 .get(GetPublishersByCountryUseCase.class)
@@ -67,9 +61,7 @@ public class CountryController {
 
     @PostMapping("/countries")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public CountryDto create(
-            @RequestBody CountryDto countryRequest
-    ) throws NoSuchMethodException {
+    public CountryDto create(@RequestBody CountryDto countryRequest) throws NoSuchMethodException {
 
         var country = CountryDtoMapper.toDomain(countryRequest);
         var createdCountry = mediator
@@ -81,10 +73,8 @@ public class CountryController {
 
     @PutMapping("/countries/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public CountryDto update(
-            @PathVariable int id,
-            @RequestBody CountryDto countryRequest
-    ) throws NoSuchMethodException {
+    public CountryDto update(@PathVariable int id, @RequestBody CountryDto countryRequest)
+            throws NoSuchMethodException {
 
         var country = CountryDtoMapper.toDomain(countryRequest);
         var createdCountry = mediator

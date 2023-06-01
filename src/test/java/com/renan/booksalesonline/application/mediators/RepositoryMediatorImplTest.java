@@ -30,6 +30,8 @@ public class RepositoryMediatorImplTest {
                 countryCommand,
                 null,
                 null,
+                null,
+                null,
                 null
         );
     }

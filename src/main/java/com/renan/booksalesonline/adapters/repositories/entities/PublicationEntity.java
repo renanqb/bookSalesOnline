@@ -23,6 +23,10 @@ public class PublicationEntity {
     )
     private PublisherEntity publisher;
 
+    protected PublicationEntity() {
+        this(0, "", null);
+    }
+
     public PublicationEntity(int id, String name, PublisherEntity publisher) {
         setId(id);
         setName(name);

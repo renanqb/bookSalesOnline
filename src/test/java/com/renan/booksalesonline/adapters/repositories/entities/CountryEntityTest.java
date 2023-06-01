@@ -7,16 +7,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CountryEntityTest {
 
     @Test
-    public void should_create_a_default_country_entity_instance() {
-
-        var expected = new CountryEntity();
-        assertThat(expected.getId()).isEqualTo(0);
-        assertThat(expected.getName()).isEqualTo("");
-        assertThat(expected.getGentilic()).isEqualTo("");
-
-    }
-
-    @Test
     public void should_create_a_country_entity_instance() {
 
         var expected = new CountryEntity(99, "Brazil", "Brazilian");

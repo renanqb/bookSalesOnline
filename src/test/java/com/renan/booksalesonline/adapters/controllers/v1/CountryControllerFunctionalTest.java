@@ -17,11 +17,10 @@ import java.text.MessageFormat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CountryControllerFunctionalTest {
-
 
     @Autowired private RestClientTesting restClientTesting;
     @Autowired private CountryRepository countryRepository;
@@ -67,8 +66,7 @@ public class CountryControllerFunctionalTest {
     public void should_update_created_country_successfully() throws NoSuchMethodException {
 
         var usa = new CountryDto("USA", "American");
-        var pathWithId = basePath + "/" + createdCountryId;
-        var response = restClientTesting.put(CountryDto.class, pathWithId, usa);
+        var response = restClientTesting.put(CountryDto.class, basePath + "/" + createdCountryId, usa);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var country = response.getBody();
@@ -81,8 +79,7 @@ public class CountryControllerFunctionalTest {
     @Order(3)
     public void should_get_by_id_created_country_successfully() throws NoSuchMethodException {
 
-        var pathWithId = basePath + "/" + createdCountryId;
-        var response = restClientTesting.get(CountryDto.class, pathWithId);
+        var response = restClientTesting.get(CountryDto.class, basePath + "/" + createdCountryId);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var country = response.getBody();
@@ -95,7 +92,9 @@ public class CountryControllerFunctionalTest {
     @Order(4)
     public void should_remove_created_country_successfully() {
 
-        assertDoesNotThrow(() -> countryController.remove(createdCountryId));
+        assertDoesNotThrow(() -> {
+            restClientTesting.delete(basePath + "/" + createdCountryId);
+        });
     }
 
     @Test

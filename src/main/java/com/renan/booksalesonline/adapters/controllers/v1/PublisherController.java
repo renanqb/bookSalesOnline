@@ -1,12 +1,12 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
-import com.renan.booksalesonline.adapters.controllers.v1.mappers.CountryDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublisherDtoMapper;
-import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
 import com.renan.booksalesonline.adapters.controllers.v1.model.PublisherDto;
 import com.renan.booksalesonline.application.mediators.UseCaseMediatorImpl;
-import com.renan.booksalesonline.application.ports.in.*;
-import com.renan.booksalesonline.domain.Country;
+import com.renan.booksalesonline.application.ports.in.usecases.*;
+import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
 import com.renan.booksalesonline.domain.Publisher;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -25,7 +25,7 @@ public class PublisherController {
 
     @GetMapping("/publishers")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<PublisherDto> getAllPublishers() throws NoSuchMethodException {
+    public PublisherDto[] getAllPublishers() throws NoSuchMethodException {
 
         var publishers = mediator
                 .get(GetAllEntitiesUseCase.class)
@@ -55,8 +55,8 @@ public class PublisherController {
 
         var publisher = PublisherDtoMapper.toDomain(publisherRequest);
         var publisherCreated = mediator
-                .get(CreateEntityUseCase.class)
-                .execute(Publisher.class, publisher);
+                .get(CreatePublisherUseCase.class)
+                .execute(publisher);
 
         return PublisherDtoMapper.fromDomain(publisherCreated);
     }
@@ -70,8 +70,8 @@ public class PublisherController {
 
         var publisher = PublisherDtoMapper.toDomain(publisherRequest);
         var createdPublisher = mediator
-                .get(UpdateEntityUseCase.class)
-                .execute(Publisher.class, publisher, id);
+                .get(UpdatePublisherUseCase.class)
+                .execute(publisher, id);
 
         return PublisherDtoMapper.fromDomain(createdPublisher);
     }
@@ -80,7 +80,7 @@ public class PublisherController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void remove(@PathVariable int id) throws NoSuchMethodException {
 
-        mediator.get(RemoveEntityUseCase.class)
-                .execute(Publisher.class, id);
+        mediator.get(RemovePublisherUseCase.class)
+                .execute(id);
     }
 }

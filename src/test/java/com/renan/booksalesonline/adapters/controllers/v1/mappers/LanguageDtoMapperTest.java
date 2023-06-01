@@ -24,7 +24,7 @@ public class LanguageDtoMapperTest {
     }
 
     @Test
-    public void should_parse_country_domain_to_country_entity() {
+    public void should_parse_language_domain_to_country_entity() {
 
         var language = new Language(1, "name");
         var expectedLanguageDto = new LanguageDto("name");
@@ -37,21 +37,21 @@ public class LanguageDtoMapperTest {
     }
 
     @Test
-    public void should_parse_country_entities_to_countries() {
+    public void should_parse_language_entities_to_countries() {
 
         var languages = Arrays.asList(
                 new Language(1, "name1"),
                 new Language(2, "name2"),
                 new Language(3, "name3")
         );
-        var expectedLanguageDtos = Arrays.asList(
+        var expectedLanguageDtos = new LanguageDto[] {
                 new LanguageDto("name1"),
                 new LanguageDto("name2"),
                 new LanguageDto("name3")
-        );
-        expectedLanguageDtos.get(0).setId(1);
-        expectedLanguageDtos.get(1).setId(2);
-        expectedLanguageDtos.get(2).setId(3);
+        };
+        expectedLanguageDtos[0].setId(1);
+        expectedLanguageDtos[1].setId(2);
+        expectedLanguageDtos[2].setId(3);
 
         var actualLanguageDtos = LanguageDtoMapper.fromDomain(languages);
 

@@ -46,7 +46,7 @@ public class PublisherDtoMapperTest {
     }
 
     @Test
-    public void should_parse_country_entities_to_countries() {
+    public void should_parse_publisher_entities_to_countries() {
 
         var country = new Country(1, "name", "gentilic");
         var entities = Arrays.asList(
@@ -57,14 +57,14 @@ public class PublisherDtoMapperTest {
 
         var countryDto = new CountryDto("name", "gentilic");
         countryDto.setId(1);
-        var expected = Arrays.asList(
+        var expected = new PublisherDto[]{
                 new PublisherDto("name1", "history1", countryDto),
                 new PublisherDto("name2", "history2", countryDto),
                 new PublisherDto("name3", "history3", countryDto)
-        );
-        expected.get(0).setId(1);
-        expected.get(1).setId(2);
-        expected.get(2).setId(3);
+        };
+        expected[0].setId(1);
+        expected[1].setId(2);
+        expected[2].setId(3);
 
         var actual = PublisherDtoMapper.fromDomain(entities);
 

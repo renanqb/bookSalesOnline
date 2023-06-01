@@ -1,7 +1,12 @@
 package com.renan.booksalesonline.application.mediators;
 
-import com.renan.booksalesonline.application.ports.in.*;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.usecases.*;
+import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -9,6 +14,7 @@ import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class UseCaseMediatorImplTest {
@@ -19,11 +25,16 @@ public class UseCaseMediatorImplTest {
     public void init() {
 
         useCaseMediator = new UseCaseMediatorImpl(
-                Mockito.mock(GetAllEntitiesUseCase.class),
-                Mockito.mock(GetEntityByIdUseCase.class),
-                Mockito.mock(CreateEntityUseCase.class),
-                Mockito.mock(UpdateEntityUseCase.class),
-                Mockito.mock(RemoveEntityUseCase.class)
+                mock(GetAllEntitiesUseCase.class),
+                mock(GetEntityByIdUseCase.class),
+                mock(CreateEntityUseCase.class),
+                mock(UpdateEntityUseCase.class),
+                mock(RemoveEntityUseCase.class),
+                mock(RemoveCountryUseCase.class),
+                mock(CreatePublisherUseCase.class),
+                mock(UpdatePublisherUseCase.class),
+                mock(RemovePublisherUseCase.class),
+                mock(GetPublishersByCountryUseCase.class)
         );
     }
 

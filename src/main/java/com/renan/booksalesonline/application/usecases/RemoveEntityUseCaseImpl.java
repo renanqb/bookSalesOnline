@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.usecases;
 
-import com.renan.booksalesonline.application.ports.in.RemoveEntityUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.RemoveEntityUseCase;
 import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.exceptions.RemoveException;

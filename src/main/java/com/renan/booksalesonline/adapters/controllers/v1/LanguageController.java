@@ -1,12 +1,9 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
-import com.renan.booksalesonline.adapters.controllers.v1.mappers.CountryDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.LanguageDtoMapper;
-import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
 import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
-import com.renan.booksalesonline.application.ports.in.*;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
-import com.renan.booksalesonline.domain.Country;
+import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.domain.Language;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +23,7 @@ public class LanguageController {
 
     @GetMapping("/languages")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<LanguageDto> getAllCountries() throws NoSuchMethodException {
+    public LanguageDto[] getAllCountries() throws NoSuchMethodException {
 
         var languages = mediator
                 .get(GetAllEntitiesUseCase.class)

@@ -26,7 +26,12 @@ public class RepositoryMediatorImplTest {
         countryQuery = (DataQuery<Country>) mock(DataQuery.class);
         countryCommand = (DataCommand<Country>) mock(DataCommand.class);
         repositoryMediator = new RepositoryMediatorImpl(
-                countryQuery, countryCommand, null,null);
+                countryQuery,
+                countryCommand,
+                null,
+                null,
+                null
+        );
     }
 
     @Test

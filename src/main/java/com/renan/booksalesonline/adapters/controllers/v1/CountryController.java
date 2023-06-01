@@ -1,9 +1,16 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.CountryDtoMapper;
+import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublisherDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
-import com.renan.booksalesonline.application.ports.in.*;
+import com.renan.booksalesonline.adapters.controllers.v1.model.PublisherDto;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.usecases.CreateEntityUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.GetAllEntitiesUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.UpdateEntityUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +30,7 @@ public class CountryController {
 
     @GetMapping("/countries")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<CountryDto> getAllCountries() throws NoSuchMethodException {
+    public CountryDto[] getAllCountries() throws NoSuchMethodException {
 
         var countries = mediator
                 .get(GetAllEntitiesUseCase.class)
@@ -43,6 +50,19 @@ public class CountryController {
                 .execute(Country.class, id);
 
         return CountryDtoMapper.fromDomain(country);
+    }
+
+    @GetMapping("/countries/{id}/publishers")
+    @ResponseStatus(value = HttpStatus.OK)
+    public PublisherDto[] getPublishersByCountryId(
+            @PathVariable("id") int countryId
+    ) throws NotFoundException, NoSuchMethodException {
+
+        var publishers = mediator
+                .get(GetPublishersByCountryUseCase.class)
+                .execute(countryId);
+
+        return PublisherDtoMapper.fromDomain(publishers);
     }
 
     @PostMapping("/countries")
@@ -78,7 +98,7 @@ public class CountryController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void remove(@PathVariable int id) throws NoSuchMethodException {
 
-        mediator.get(RemoveEntityUseCase.class)
-                .execute(Country.class, id);
+        mediator.get(RemoveCountryUseCase.class)
+                .execute(id);
     }
 }

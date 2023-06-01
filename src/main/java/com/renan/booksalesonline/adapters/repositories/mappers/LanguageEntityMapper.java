@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class LanguageEntityMapper {
 
+    private LanguageEntityMapper() { }
+
     public static Language toDomain(LanguageEntity languageEntity) {
 
         if (languageEntity == null)

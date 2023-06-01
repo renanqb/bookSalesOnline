@@ -4,9 +4,10 @@ import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
 import com.renan.booksalesonline.domain.Country;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CountryDtoMapper {
+
+    private CountryDtoMapper() { }
 
     public static Country toDomain(CountryDto countryRequest) {
 
@@ -24,10 +25,10 @@ public class CountryDtoMapper {
         return countryDto;
     }
 
-    public static List<CountryDto> fromDomain(List<Country> countries) {
+    public static CountryDto[] fromDomain(List<Country> countries) {
 
         return countries.stream()
                 .map(CountryDtoMapper::fromDomain)
-                .collect(Collectors.toList());
+                .toArray(CountryDto[]::new);
     }
 }

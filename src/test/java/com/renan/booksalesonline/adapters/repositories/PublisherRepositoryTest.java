@@ -72,7 +72,7 @@ public class PublisherRepositoryTest {
     }
 
     @Test
-    public void should_create_a_country_entity() {
+    public void should_create_a_publisher_entity() {
 
         var mockedPublisherEntity = new PublisherEntity(1, "name", "history", null);
         when(publisherData.save(any(PublisherEntity.class))).thenReturn(mockedPublisherEntity);
@@ -86,7 +86,7 @@ public class PublisherRepositoryTest {
     }
 
     @Test
-    public void should_remove_a_country_entity() {
+    public void should_remove_a_publisher_entity() {
 
         doNothing().when(publisherData).delete(any(PublisherEntity.class));
 
@@ -94,5 +94,36 @@ public class PublisherRepositoryTest {
             var publisher = new Publisher(1, "name", "history", null);
             publisherRepository.remove(publisher);
         });
+    }
+
+    @Test
+    public void should_validate_whether_exists_publisher_by_country() {
+
+        when(publisherData.existsPublisherByCountryId(anyInt())).thenReturn(true);
+        assertThat(publisherRepository.existsPublisherByCountryId(1)).isTrue();
+    }
+
+    @Test
+    public void should_get_publisher_entities_from_a_given_country() {
+
+        var countryEntity = new CountryEntity(1, "name", "gentilic");
+        var publisherEntities = Arrays.asList(
+                new PublisherEntity(1, "name1", "history1", countryEntity)
+        );
+        when(publisherData.getPublishersByCountryId(anyInt())).thenReturn(publisherEntities);
+
+        var country = new Country(1, "name", "gentilic");
+        var expectedPublishers = Arrays.asList(
+                new Publisher(1, "name1", "history1", country)
+        );
+
+        var publishers = publisherRepository.getPublishersByCountryId(1);
+        var expected = expectedPublishers.get(0);
+        var actual = publishers.get(0);
+
+        assertThat((int)actual.getId()).isEqualTo((int)expected.getId());
+        assertThat(actual.getName()).isEqualTo(expected.getName());
+        assertThat(actual.getHistory()).isEqualTo(expected.getHistory());
+        assertThat((int)actual.getCountry().getId()).isEqualTo((int)expected.getCountry().getId());
     }
 }

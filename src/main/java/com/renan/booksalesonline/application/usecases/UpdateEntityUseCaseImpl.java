@@ -1,7 +1,7 @@
 package com.renan.booksalesonline.application.usecases;
 
 import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
-import com.renan.booksalesonline.application.ports.in.UpdateEntityUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.UpdateEntityUseCase;
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.domain.commom.BaseDomain;

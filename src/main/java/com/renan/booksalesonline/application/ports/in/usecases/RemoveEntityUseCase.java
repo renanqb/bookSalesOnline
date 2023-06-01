@@ -1,4 +1,4 @@
-package com.renan.booksalesonline.application.ports.in;
+package com.renan.booksalesonline.application.ports.in.usecases;
 
 public interface RemoveEntityUseCase {
 

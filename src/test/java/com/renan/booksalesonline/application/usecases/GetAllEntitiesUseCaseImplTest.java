@@ -1,6 +1,5 @@
 package com.renan.booksalesonline.application.usecases;
 
-import com.renan.booksalesonline.application.ports.in.GetAllEntitiesUseCase;
 import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.domain.Country;

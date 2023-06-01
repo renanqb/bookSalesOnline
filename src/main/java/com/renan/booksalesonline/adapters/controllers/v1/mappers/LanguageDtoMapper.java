@@ -4,9 +4,10 @@ import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
 import com.renan.booksalesonline.domain.Language;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LanguageDtoMapper {
+
+    private LanguageDtoMapper() { }
 
     public static Language toDomain(LanguageDto languageRequest) {
 
@@ -20,10 +21,10 @@ public class LanguageDtoMapper {
         return languageDto;
     }
 
-    public static List<LanguageDto> fromDomain(List<Language> languages) {
+    public static LanguageDto[] fromDomain(List<Language> languages) {
 
         return languages.stream()
                 .map(LanguageDtoMapper::fromDomain)
-                .collect(Collectors.toList());
+                .toArray(LanguageDto[]::new);
     }
 }

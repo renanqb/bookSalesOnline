@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.usecases;
 
-import com.renan.booksalesonline.application.ports.in.GetAllEntitiesUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.GetAllEntitiesUseCase;
 import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

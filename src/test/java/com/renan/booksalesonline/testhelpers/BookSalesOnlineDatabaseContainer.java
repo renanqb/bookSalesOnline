@@ -1,4 +1,4 @@
-package com.renan.booksalesonline;
+package com.renan.booksalesonline.testhelpers;
 
 import org.testcontainers.containers.PostgreSQLContainer;
 

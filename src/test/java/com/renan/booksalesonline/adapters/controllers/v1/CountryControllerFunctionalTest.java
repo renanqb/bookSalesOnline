@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.MessageFormat;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -92,9 +91,9 @@ public class CountryControllerFunctionalTest {
     @Order(4)
     public void should_remove_created_country_successfully() {
 
-        assertDoesNotThrow(() -> {
-            restClientTesting.delete(basePath + "/" + createdCountryId);
-        });
+        var url = String.format("%s/%s", basePath, createdCountryId);
+        var response = restClientTesting.delete(url);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
     }
 
     @Test
@@ -119,6 +118,15 @@ public class CountryControllerFunctionalTest {
 
         var publishers = response.getBody();
         assertThat(publishers.length).isEqualTo(2);
+    }
+
+    @Test
+    @Order(7)
+    public void should_not_remove_country_given_not_existent_id() {
+
+        var url = String.format("%s/%s", basePath, 99);
+        var response = restClientTesting.delete(url);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_ACCEPTABLE);
     }
 
     @AfterAll

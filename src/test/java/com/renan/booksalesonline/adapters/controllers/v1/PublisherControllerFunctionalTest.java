@@ -14,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -94,9 +93,9 @@ public class PublisherControllerFunctionalTest {
     @Order(4)
     public void should_remove_created_publisher_successfully() {
 
-        assertDoesNotThrow(() -> {
-            restClientTesting.delete(basePath + "/" + createdPublisherId);
-        });
+        var url = String.format("%s/%s", basePath, createdPublisherId);
+        var response = restClientTesting.delete(url);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
     }
 
     @Test
@@ -108,6 +107,15 @@ public class PublisherControllerFunctionalTest {
 
         var publishers = response.getBody();
         assertThat(publishers.length).isEqualTo(3);
+    }
+
+    @Test
+    @Order(6)
+    public void should_not_remove_publisher_given_not_existent_id() {
+
+        var url = String.format("%s/%s", basePath, 99);
+        var response = restClientTesting.delete(url);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_ACCEPTABLE);
     }
 
     @AfterAll

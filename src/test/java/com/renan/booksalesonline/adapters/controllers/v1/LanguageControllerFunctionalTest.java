@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -80,9 +79,9 @@ public class LanguageControllerFunctionalTest {
     @Order(4)
     public void should_remove_created_language_successfully() {
 
-        assertDoesNotThrow(() -> {
-            restClientTesting.delete(basePath + "/" + createdLanguageId);
-        });
+        var url = String.format("%s/%s", basePath, createdLanguageId);
+        var response = restClientTesting.delete(url);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
     }
 
     @Test
@@ -94,6 +93,15 @@ public class LanguageControllerFunctionalTest {
 
         var countries = response.getBody();
         assertThat(countries.length).isEqualTo(3);
+    }
+
+    @Test
+    @Order(6)
+    public void should_not_remove_language_given_not_existent_id() {
+
+        var url = String.format("%s/%s", basePath, 99);
+        var response = restClientTesting.delete(url);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_ACCEPTABLE);
     }
 
     @AfterAll

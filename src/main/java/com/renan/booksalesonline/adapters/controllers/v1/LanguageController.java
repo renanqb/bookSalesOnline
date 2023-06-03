@@ -69,7 +69,7 @@ public class LanguageController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void remove(@PathVariable int id) throws NoSuchMethodException {
 
-        mediator.get(RemoveEntityUseCase.class)
-                .execute(Language.class, id);
+        var useCase = mediator.get(RemoveEntityUseCase.class);
+        useCase.execute(Language.class, id);
     }
 }

@@ -97,10 +97,17 @@ public class PublisherRepositoryTest {
     }
 
     @Test
-    public void should_validate_whether_exists_publisher_by_country() {
+    public void should_validate_whether_does_exists_publisher_by_country() {
 
         when(publisherData.existsPublisherByCountryId(anyInt())).thenReturn(true);
         assertThat(publisherRepository.existsPublisherByCountryId(1)).isTrue();
+    }
+
+    @Test
+    public void should_validate_whether_does_not_exists_publisher_by_country() {
+
+        when(publisherData.existsPublisherByCountryId(anyInt())).thenReturn(false);
+        assertThat(publisherRepository.existsPublisherByCountryId(1)).isFalse();
     }
 
     @Test

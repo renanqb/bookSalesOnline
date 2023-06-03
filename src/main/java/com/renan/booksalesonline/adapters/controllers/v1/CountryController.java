@@ -88,7 +88,7 @@ public class CountryController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void remove(@PathVariable int id) throws NoSuchMethodException {
 
-        mediator.get(RemoveCountryUseCase.class)
-                .execute(id);
+        var useCase = mediator.get(RemoveCountryUseCase.class);
+        useCase.execute(id);
     }
 }

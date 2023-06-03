@@ -40,9 +40,10 @@ public class RestClientTesting {
         return testRestTemplate.patchForObject(getUrl(path), payload, clazz);
     }
 
-    public void delete(String path) {
+    public ResponseEntity<String> delete(String path) {
 
-        testRestTemplate.delete(getUrl(path));
+        return testRestTemplate
+                .exchange(getUrl(path), HttpMethod.DELETE, null, String.class);
     }
 
     private String getUrl(String path) {

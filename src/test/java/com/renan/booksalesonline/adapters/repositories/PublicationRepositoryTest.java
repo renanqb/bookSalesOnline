@@ -68,9 +68,16 @@ public class PublicationRepositoryTest {
     }
 
     @Test
-    public void should_validate_whether_exists_publication_by_publisher() {
+    public void should_validate_whether_does_exists_publication_by_publisher() {
 
         when(publicationData.existsPublicationByPublisherId (anyInt())).thenReturn(true);
         assertThat(publicationRepository.existsPublicationByPublisherId(1)).isTrue();
+    }
+
+    @Test
+    public void should_validate_whether_does_not_exists_publication_by_publisher() {
+
+        when(publicationData.existsPublicationByPublisherId (anyInt())).thenReturn(false);
+        assertThat(publicationRepository.existsPublicationByPublisherId(1)).isFalse();
     }
 }

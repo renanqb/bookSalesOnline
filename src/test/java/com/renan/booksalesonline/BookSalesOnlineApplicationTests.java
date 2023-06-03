@@ -1,5 +1,6 @@
 package com.renan.booksalesonline;
 
+import com.renan.booksalesonline.testhelpers.BookSalesOnlineDatabaseContainer;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

@@ -1,0 +1,1 @@
+awslocal s3api create-bucket --bucket booksalesonline-images --region sa-east-1 --create-bucket-configuration LocationConstraint=sa-east-1

@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 
 public class PublicationEntityMapper {
 
-    private PublicationEntityMapper() { }
-
     public static Publication toDomain(PublicationEntity publicationEntity) {
 
         if (publicationEntity == null)

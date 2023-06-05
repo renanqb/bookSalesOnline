@@ -10,8 +10,6 @@ import java.util.stream.Collectors;
 
 public class CountryEntityMapper {
 
-    private CountryEntityMapper() { }
-
     public static Country toDomain(CountryEntity countryEntity) {
 
         if (countryEntity == null)

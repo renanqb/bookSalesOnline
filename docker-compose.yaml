@@ -8,8 +8,25 @@ services:
 #      - "8081:8080"
 #    depends_on:
 #      - postgres
+#      - localstack
 #    networks:
 #      - booksalesonline-network
+
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:latest
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - LOCALSTACK_HOSTNAME=localhost
+      - AWS_DEFAULT_REGION=sa-east-1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - DATA_DIR=/tmp/localstack/data
+    ports:
+      - "4566:4566"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./localstack/aws_s3_create_bucket.sh:/docker-entrypoint-initaws.d/create_bucket.sh
 
   postgres:
     image: postgres:15.2
@@ -23,10 +40,9 @@ services:
         max-file: "3"
     ports:
       - '5438:5432'
-    volumes: 
-      #- ./postgresdb:/var/lib/postgresql/data
+    volumes:
       # copy the sql script to create tables
-      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./localstack/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     networks:
       - booksalesonline-network
 

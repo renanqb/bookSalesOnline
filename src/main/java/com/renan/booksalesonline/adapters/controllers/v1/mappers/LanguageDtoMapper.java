@@ -7,8 +7,6 @@ import java.util.List;
 
 public class LanguageDtoMapper {
 
-    private LanguageDtoMapper() { }
-
     public static Language toDomain(LanguageDto languageRequest) {
 
         return new Language((int)languageRequest.getId(), languageRequest.getName());

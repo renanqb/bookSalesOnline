@@ -13,7 +13,7 @@ public class SubjectEntityMapper {
 
         if (subjectEntity == null)
             return null;
-        
+
         return new Subject(
                 subjectEntity.getId(),
                 subjectEntity.getName(),

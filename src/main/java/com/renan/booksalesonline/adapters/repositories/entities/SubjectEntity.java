@@ -17,7 +17,9 @@ public class SubjectEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
-    public SubjectEntity() {
+
+    protected SubjectEntity() {
+        this(0, "", "");
     }
 
     public SubjectEntity(int id, String name, String description) {

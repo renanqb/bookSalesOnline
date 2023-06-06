@@ -46,18 +46,46 @@ services:
     networks:
       - booksalesonline-network
 
-#  pgadmin:
-#    image: dpage/pgadmin4:6.20
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: "renanvianamarcelino@gmail.com"
-#      PGADMIN_DEFAULT_PASSWORD: "pgadmin-pass"
-#    ports:
-#      - "16543:80"
-#    depends_on:
-#      - postgres
-#    networks:
-#      - booksalesonline-network
+  pgadmin:
+    image: dpage/pgadmin4:6.20
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "renanvianamarcelino@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin-pass"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - booksalesonline-network
+
+  redis:
+    image: redis:7.0.11
+    restart: always
+    ports:
+      - '6379:6379'
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis:/data
+    networks:
+      - booksalesonline-network
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+      - HTTP_USER=root
+      - HTTP_PASSWORD=qwerty
+    ports:
+      - "16544:8081"
+    depends_on:
+      - redis
+    networks:
+      - booksalesonline-network
 
 networks:
   booksalesonline-network:
     driver: bridge
+
+volumes:
+  redis:
+    driver: local

@@ -7,6 +7,10 @@ public class Publisher extends BaseDomain {
     private String history;
     private Country country;
 
+    public Publisher() {
+        this(0, "", "", null);
+    }
+
     public Publisher(int id, String name, String history, Country country) {
         super(id, name);
         setHistory(history);

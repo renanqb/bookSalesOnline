@@ -5,6 +5,7 @@ import com.renan.booksalesonline.adapters.repositories.CountryRepository;
 import com.renan.booksalesonline.adapters.repositories.PublisherRepository;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.Publisher;
+import com.renan.booksalesonline.testhelpers.BookSalesOnlineContainerTest;
 import com.renan.booksalesonline.testhelpers.RestClientTesting;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class CountryControllerFunctionalTest {
+public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTest {
 
     @Autowired private RestClientTesting restClientTesting;
     @Autowired private CountryRepository countryRepository;
@@ -89,6 +90,19 @@ public class CountryControllerFunctionalTest {
 
     @Test
     @Order(4)
+    public void should_get_by_id_created_country_from_cache_successfully() throws NoSuchMethodException {
+
+        var response = restClientTesting.get(CountryDto.class, basePath + "/" + createdCountryId);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+        var country = response.getBody();
+        assertThat(country.getId()).isEqualTo(createdCountryId);
+        assertThat(country.getName()).isEqualTo("USA");
+        assertThat(country.getGentilic()).isEqualTo("American");
+    }
+
+    @Test
+    @Order(5)
     public void should_remove_created_country_successfully() {
 
         var url = String.format("%s/%s", basePath, createdCountryId);
@@ -97,7 +111,7 @@ public class CountryControllerFunctionalTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     public void should_get_all_countries_successfully() {
 
         var response = restClientTesting.get(CountryDto[].class, basePath);
@@ -108,7 +122,7 @@ public class CountryControllerFunctionalTest {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
     public void should_get_publishers_given_a_country_successfully() {
 
         var newPath = MessageFormat
@@ -121,7 +135,7 @@ public class CountryControllerFunctionalTest {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     public void should_not_remove_country_given_not_existent_id() {
 
         var url = String.format("%s/%s", basePath, 99);

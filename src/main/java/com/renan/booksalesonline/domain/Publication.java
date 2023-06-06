@@ -6,6 +6,10 @@ public class Publication extends BaseDomain {
 
     private Publisher publisher;
 
+    public Publication() {
+        this(0, "", null);
+    }
+
     public Publication(int id, String name, Publisher publisher) {
         super(id, name);
         setPublisher(publisher);

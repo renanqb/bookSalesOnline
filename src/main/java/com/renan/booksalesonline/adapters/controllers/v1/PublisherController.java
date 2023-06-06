@@ -1,5 +1,6 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublisherDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.PublisherDto;
 import com.renan.booksalesonline.application.mediators.UseCaseMediatorImpl;
@@ -34,7 +35,8 @@ public class PublisherController {
 
     @GetMapping("/publishers/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public PublisherDto getPublisherById(@PathVariable("id") int id) throws NoSuchMethodException {
+    public PublisherDto getPublisherById(@PathVariable("id") int id)
+            throws NoSuchMethodException, JsonProcessingException {
 
         var publisher = mediator
                 .get(GetEntityByIdUseCase.class)

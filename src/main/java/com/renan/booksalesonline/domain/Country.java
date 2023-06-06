@@ -6,6 +6,10 @@ public class Country extends BaseDomain {
 
     private String gentilic;
 
+    public Country() {
+        this(0, "", "");
+    }
+
     public Country(int id) {
         this(id, "", "");
     }

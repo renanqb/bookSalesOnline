@@ -6,6 +6,7 @@ import com.renan.booksalesonline.adapters.repositories.CountryRepository;
 import com.renan.booksalesonline.adapters.repositories.PublisherRepository;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.Publisher;
+import com.renan.booksalesonline.testhelpers.BookSalesOnlineContainerTest;
 import com.renan.booksalesonline.testhelpers.RestClientTesting;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class PublisherControllerFunctionalTest {
+public class PublisherControllerFunctionalTest extends BookSalesOnlineContainerTest {
 
     @Autowired private RestClientTesting restClientTesting;
     @Autowired private CountryRepository countryRepository;

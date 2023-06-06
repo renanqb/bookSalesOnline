@@ -1,5 +1,6 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.LanguageDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
@@ -31,7 +32,8 @@ public class LanguageController {
 
     @GetMapping("/languages/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public LanguageDto getCountryById(@PathVariable("id") int id) throws NoSuchMethodException {
+    public LanguageDto getCountryById(@PathVariable("id") int id)
+            throws NoSuchMethodException, JsonProcessingException {
 
         var country = mediator
                 .get(GetEntityByIdUseCase.class)

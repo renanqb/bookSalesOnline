@@ -10,8 +10,6 @@ import java.util.stream.Collectors;
 
 public class PublisherDtoMapper {
 
-    private PublisherDtoMapper() { }
-
     public static Publisher toDomain(PublisherDto publisherRequest) {
 
         var countryRequest = publisherRequest.getCountry();

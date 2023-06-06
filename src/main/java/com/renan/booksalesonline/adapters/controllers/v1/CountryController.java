@@ -1,5 +1,6 @@
 package com.renan.booksalesonline.adapters.controllers.v1;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.CountryDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublisherDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
@@ -38,7 +39,8 @@ public class CountryController {
 
     @GetMapping("/countries/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public CountryDto getCountryById(@PathVariable("id") int id) throws NoSuchMethodException {
+    public CountryDto getCountryById(@PathVariable("id") int id)
+            throws NoSuchMethodException, JsonProcessingException {
 
         var country = mediator
                 .get(GetEntityByIdUseCase.class)

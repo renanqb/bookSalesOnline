@@ -1,0 +1,51 @@
+Epic: Manutenção de publicações (livros, mangás, revistas e guias)
+Feature: Cadastro de assuntos das publicações (subject)
+
+Story: Listar todos os assuntos cadastrados
+	
+	Context:	Toda publicação seja ela um livr, mangá ou revista possui temas específicos que o autor quer abordar.
+					Como exemplo,  títulos de ação, aventura, fantasia, romance, policial, etc.
+					Essa história visa num primeiro momento apenas listar esse assuntos na saída da API.
+	
+	Refinement: 
+	
+		Para construir esse caminho vamos seguir a estrutura de tarefas demonstrada abaixo.
+			- A arquitetura da aplicação é hexagonal (ports & adapters) por isso se atentar na criação das interfaces quando necessário.
+			- Toda classe criada devemos considerar criação e/ou refatoração testes unitário.
+			- A cada task concluída, realizar commitar na branch que estamos trabalhando. 
+			- Considerar como "task concluída " código sem problemas de build e com a cobertura do jacoco considerada localmente.
+			
+		0 - Criar branch "feature-subjects-get-all"no github
+	
+		1 - Criar uma entidade que represente a tabela "subject" SubjectEntity,  do banco de dados. 
+			- com.renan.booksalesonline.adapters.repositories.entities
+			
+		2 - Criar o repositório JPA que vai lidar com a entidade SubjectEntity
+			- com.renan.booksalesonline.adapters.repositories.data
+			
+		3 - Criar no domínio da aplicação classe que represente um "subject". Herdar de BaseDomain.
+			- com.renan.booksalesonline.domain
+			
+		4 - Criar um mapper que deve mapear da entitdade p/ o domínio.
+			- com.renan.booksalesonline.adapters.repositories.mappers
+			
+		5 - Criar repositório da aplicação. Nesse primeiro momento apenas queremos obter dados então devemos implementar apenas a interface DataQuery.
+			- com.renan.booksalesonline.adapters.repositories
+			
+		6 - Injetar na classe RepositoryMediatorImpl (fábrica de repositórios) o novo repositório criado.
+			-  com.renan.booksalesonline.application.mediators
+			
+		7 - Criar a classe SubjectDto para representar a saída da API. Deve herdar de BaseDto.
+			- com.renan.booksalesonline.adapters.controllers.v1.model
+			
+		8 - Criar mapper que realize o mapeamento do domínio para o dto (Flatten).
+			- com.renan.booksalesonline.adapters.controllers.v1.mappers
+			
+		9 - Criar controller SubjectController com o método getAllSubjects. Utilizar o UseCase existente GetAllEntitiesUseCase.
+			-  com.renan.booksalesonline.adapters.controllers.v1
+			
+		10 - Criar cenário de teste de obter todos os assunto da base de dados via testcontainers.
+			- com.renan.booksalesonline.adapters.controllers.v1
+			
+		11 - Executar a análise de testes mutantes com pitest.
+			- Plugins -> pitest -> pitest:mutantCoverage -> Run

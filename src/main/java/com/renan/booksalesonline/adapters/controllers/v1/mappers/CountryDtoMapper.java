@@ -7,8 +7,6 @@ import java.util.List;
 
 public class CountryDtoMapper {
 
-    private CountryDtoMapper() { }
-
     public static Country toDomain(CountryDto countryRequest) {
 
         return new Country(

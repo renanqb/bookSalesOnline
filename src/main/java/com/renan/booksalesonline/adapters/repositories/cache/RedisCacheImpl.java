@@ -1,4 +1,4 @@
-package com.renan.booksalesonline.application.mediators;
+package com.renan.booksalesonline.adapters.repositories.cache;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -22,6 +23,7 @@ public class RedisCacheImpl implements RedisCache {
             @Autowired @Qualifier("customRedisTemplate") RedisTemplate<String, String> redisTemplate) {
 
         this.redisTemplate = redisTemplate;
+        this.redisExpires = Objects.requireNonNullElse(redisExpires, 1);
     }
 
     @Override

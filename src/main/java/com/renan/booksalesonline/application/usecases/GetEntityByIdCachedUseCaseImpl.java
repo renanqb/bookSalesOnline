@@ -3,17 +3,21 @@ package com.renan.booksalesonline.application.usecases;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
-import com.renan.booksalesonline.application.ports.out.DataQuery;
+import com.renan.booksalesonline.application.ports.out.base.RedisCache;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class GetEntityByIdUseCaseImpl implements GetEntityByIdUseCase {
+public class GetEntityByIdCachedUseCaseImpl
+        extends GetEntityByIdUseCaseImpl implements GetEntityByIdUseCase {
 
-    protected final RepositoryMediator mediator;
+    private final RedisCache cache;
 
-    public GetEntityByIdUseCaseImpl(@Autowired RepositoryMediator mediator) {
-
-        this.mediator = mediator;
+    public GetEntityByIdCachedUseCaseImpl(
+            @Autowired RepositoryMediator mediator,
+            @Autowired RedisCache cache
+    ) {
+        super(mediator);
+        this.cache = cache;
     }
 
     @Override
@@ -21,12 +25,12 @@ public class GetEntityByIdUseCaseImpl implements GetEntityByIdUseCase {
     public <T> T execute(Class<T> clazz, int id)
             throws NotFoundException, NoSuchMethodException, JsonProcessingException {
 
-        var query = (DataQuery<T>) mediator.getQuery(clazz);
-        var domain = query.getById(id);
+        var cachedDomain = cache.getById(clazz, id);
+        if (cachedDomain != null) return cachedDomain;
 
-        if (domain == null) {
-            throw new NotFoundException(clazz, id);
-        }
+        var domain = super.execute(clazz, id);
+
+        cache.save(domain, id);
 
         return domain;
     }

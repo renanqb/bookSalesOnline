@@ -19,12 +19,12 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class GetEntityByIdUseCaseImplTest {
+public class GetEntityByIdCachedUseCaseImplTest {
 
     @Mock private DataQuery<Country> countryQuery;
     @Mock private RepositoryMediator mediator;
     @Mock private RedisCache redisCache;
-    @InjectMocks private GetEntityByIdUseCaseImpl getEntityByIdUseCase;
+    @InjectMocks private GetEntityByIdCachedUseCaseImpl getEntityByIdUseCase;
 
     @Test
     public void should_find_entity_ignoring_cache_in_use_case()

@@ -14,7 +14,7 @@ public class SubjectDto extends BaseDto {
         this.description = description;
     }
 
-    public String getGentilic() {
+    public String getDescription() {
         return description;
     }
 }

@@ -94,7 +94,7 @@ INSERT INTO public.publisher("name", "history", "id_country") VALUES ('Addison-W
 INSERT INTO public.publisher("name", "history", "id_country") VALUES ('Companhia das Letras', '', 2);
 
 INSERT INTO public.publication(
-    "isbn10", "isbn13", "pages", "material", "name", "summary", 
+    "isbn10", "isbn13", "pages", "material", "name", "summary",
     "id_language", "id_publisher", "id_publication_type"
 ) VALUES (
     '8595084750', '978-8595084759', 576, 'Capa dura', 'O Senhor dos Anéis: A Sociedade do Anel', 
@@ -105,7 +105,8 @@ INSERT INTO public.publication_author("id_publication", "id_author") VALUES (1, 
 INSERT INTO public.publication_subject("id_publication", "id_subject") VALUES (1, 1);
 INSERT INTO public.publication_subject("id_publication", "id_subject") VALUES (1, 2);
 
-SELECT 
+SELECT
+    pub.id,
     pub.isbn10, 
     pub.isbn13,
     pub.pages,

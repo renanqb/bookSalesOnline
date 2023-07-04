@@ -4,6 +4,9 @@ import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publication.GetAllPublicationImagesUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publication.CreatePublicationImageUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publication.UpdatePublicationImageUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
@@ -28,7 +31,10 @@ public class UseCaseMediatorImpl implements UseCaseMediator {
             @Autowired CreatePublisherUseCase createPublisherUseCase,
             @Autowired UpdatePublisherUseCase updatePublisherUseCase,
             @Autowired RemovePublisherUseCase removePublisherUseCase,
-            @Autowired GetPublishersByCountryUseCase getPublishersByCountryUseCase
+            @Autowired GetPublishersByCountryUseCase getPublishersByCountryUseCase,
+            @Autowired GetAllPublicationImagesUseCase getAllPublicationImagesUseCase,
+            @Autowired CreatePublicationImageUseCase createPublicationImageUseCase,
+            @Autowired UpdatePublicationImageUseCase updatePublicationImageUseCase
     ) {
         useCases.put(GetAllEntitiesUseCase.class, getAllEntitiesUseCase);
         useCases.put(GetEntityByIdUseCase.class, getEntityByIdUseCase);
@@ -41,6 +47,9 @@ public class UseCaseMediatorImpl implements UseCaseMediator {
         useCases.put(UpdatePublisherUseCase.class, updatePublisherUseCase);
         useCases.put(RemovePublisherUseCase.class, removePublisherUseCase);
         useCases.put(GetPublishersByCountryUseCase.class, getPublishersByCountryUseCase);
+        useCases.put(GetAllPublicationImagesUseCase.class, getAllPublicationImagesUseCase);
+        useCases.put(CreatePublicationImageUseCase.class, createPublicationImageUseCase);
+        useCases.put(UpdatePublicationImageUseCase.class, updatePublicationImageUseCase);
     }
 
     @Override

@@ -3,22 +3,23 @@ package com.renan.booksalesonline.adapters.controllers.v1;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublisherDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.PublisherDto;
-import com.renan.booksalesonline.application.mediators.UseCaseMediatorImpl;
+import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.GetAllEntitiesUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
 import com.renan.booksalesonline.domain.Publisher;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PublisherController {
 
-    private final UseCaseMediatorImpl mediator;
+    private final UseCaseMediator mediator;
 
-    public PublisherController(UseCaseMediatorImpl mediator) {
+    public PublisherController(@Autowired UseCaseMediator mediator) {
         this.mediator = mediator;
     }
 

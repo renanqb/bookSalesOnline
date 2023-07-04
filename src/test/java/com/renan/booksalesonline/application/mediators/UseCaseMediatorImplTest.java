@@ -4,13 +4,15 @@ import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publication.GetAllPublicationImagesUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publication.CreatePublicationImageUseCase;
+import com.renan.booksalesonline.application.ports.in.usecases.publication.UpdatePublicationImageUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -34,7 +36,10 @@ public class UseCaseMediatorImplTest {
                 mock(CreatePublisherUseCase.class),
                 mock(UpdatePublisherUseCase.class),
                 mock(RemovePublisherUseCase.class),
-                mock(GetPublishersByCountryUseCase.class)
+                mock(GetPublishersByCountryUseCase.class),
+                mock(GetAllPublicationImagesUseCase.class),
+                mock(CreatePublicationImageUseCase.class),
+                mock(UpdatePublicationImageUseCase.class)
         );
     }
 

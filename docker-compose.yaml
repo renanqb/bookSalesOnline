@@ -2,18 +2,18 @@ version: '3.4'
 
 services:
 
-  app:
-    build: .
-    ports:
-      - "8088:8081"
-    volumes:
-      - myapp:/app
-    depends_on:
-      - postgres
-      - localstack
-      - redis
-    networks:
-      - booksalesonline-network
+#  app:
+#    build: .
+#    ports:
+#      - "8088:8081"
+#    volumes:
+#      - myapp:/app
+#    depends_on:
+#      - postgres
+#      - localstack
+#      - redis
+#    networks:
+#      - booksalesonline-network
 
   localstack:
     container_name: localstack

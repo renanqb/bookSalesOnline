@@ -25,7 +25,7 @@ public class RemoveEntityUseCaseImpl implements RemoveEntityUseCase {
         var persistedCountry = query.getById(id);
 
         if (persistedCountry == null) {
-            throw new RemoveException(Country.class, id);
+            throw new RemoveException(clazz, id);
         }
 
         command.remove(persistedCountry);

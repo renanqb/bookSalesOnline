@@ -1,0 +1,979 @@
+{
+	"info": {
+		"_postman_id": "24b298a9-0132-4008-8534-11c8484f4e03",
+		"name": "bookSalesOnline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28379538"
+	},
+	"item": [
+		{
+			"name": "authors",
+			"item": [
+				{
+					"name": "getAuthors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/authors",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAuthorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/authors/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addAuthor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"J.R.R Tolkien\",\n    \"resume\": \"\",\n    \"id_country\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/authors",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAuthor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"J.R.R Tolkien\",\n    \"resume\": \"Foi um premiado escritor, professor universitário e filólogo britânico, nascido na África, que recebeu o título de doutor em Letras e Filologia pela Universidade de Liège e Dublin, em 1954 e autor das obras como O Hobbit, O Senhor dos Anéis e O Silmarillion.\",\n    \"id_country\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/authors/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeAuthor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/authors/2",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"authors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "countries",
+			"item": [
+				{
+					"name": "getCountries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCountryById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAuthorsByCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries/1/authors",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries",
+								"1",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublisherByCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries/2/publishers",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries",
+								"2",
+								"publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCountry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Russia\",\n    \"gentilic\": \"Russo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCountry",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Brasil\",\n    \"gentilic\": \"Brasileiro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeCountry",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/countries/13",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"countries",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "languages",
+			"item": [
+				{
+					"name": "getLanguages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/languages",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLanguagesById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/languages/2",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"languages",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addLanguage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Japonês\",\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/languages",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"languages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeLanguage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/languages/4",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"languages",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateLanguages",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Inglês\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/languages/3",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"languages",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publications",
+			"item": [
+				{
+					"name": "getPublications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publications",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublicationById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publications/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "appendPublicationImage",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/rmarcelino/Imagens/campos_mapeados_fabiano.pdf"
+								},
+								{
+									"key": "files",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/rmarcelino/Imagens/boulos.jpg"
+								},
+								{
+									"key": "files",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/rmarcelino/Imagens/67ec039cca4baeb4cb9898ae7acffc3e5d06ff47v2_00.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publications/3/images",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publications",
+								"3",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "replacePublicationImage",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/rmarcelino/Imagens/senhor_dos_aneis_sociedade_anel_capa_v1.jpg"
+								},
+								{
+									"key": "files",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/rmarcelino/Imagens/senhor_dos_aneis_sociedade_anel_capa_v2.jpg"
+								},
+								{
+									"key": "files",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/home/rmarcelino/Imagens/senhor_dos_aneis_sociedade_anel_capa_v3.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publications/1/images",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publications",
+								"1",
+								"images"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publicationtypes",
+			"item": [
+				{
+					"name": "getPublicationTypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publicationtypes",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publicationtypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublicationTypeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publicationtypes/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publicationtypes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPublicationType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mangá\",\n    \"description\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publicationtypes",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publicationtypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removePublicationType",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publicationtypes/3",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publicationtypes",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePublicationType",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"name\": \"Mangá\",\n        \"description\": \"Mangá é o nome dado às histórias em quadrinhos de origem japonesa. A palavra surgiu da junção de dois vocábulos: 'man' (involuntário) e 'gá' (desenho, imagem). Ou seja, mangá significa literalmente 'desenhos involuntários'.\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publicationtypes/2",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publicationtypes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publishers",
+			"item": [
+				{
+					"name": "getPublishers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publishers",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublisherById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publishers/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publishers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPublisher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"XPTO\",\n    \"history\": \"\",\n    \"id_country\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publishers",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removePublisher",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publishers/1",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publishers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePublisher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"XPTO2\",\n    \"history\": \"...\",\n    \"id_country\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/publishers/3",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"publishers",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subjects",
+			"item": [
+				{
+					"name": "getSubjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/subjects",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubjectById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/subjects/2",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"subjects",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addSubject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Slice of life\",\n    \"description\": \"Descreve o uso do realismo mundano que representa experiências quotidianas em arte e entretenimento.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/subjects",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeSubject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/subjects/6",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"subjects",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSubject",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fantasia\",\n    \"description\": \"É um gênero da ficção em que se usa geralmente fenômenos sobrenaturais, mágicos e outros como um elemento primário do enredo, tema ou configuração.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{endpoint}}/v1/api/subjects/2",
+							"protocol": "http",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"v1",
+								"api",
+								"subjects",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "localhost:8081",
+			"type": "string"
+		}
+	]
+}

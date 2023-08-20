@@ -51,9 +51,8 @@ public class PublisherController {
     public PublisherDto create(@RequestBody PublisherDto publisherRequest) throws NoSuchMethodException {
 
         var publisher = PublisherDtoMapper.toDomain(publisherRequest);
-        var publisherCreated = mediator
-                .get(CreatePublisherUseCase.class)
-                .execute(publisher);
+        var useCase = mediator.get(CreatePublisherUseCase.class);
+        var publisherCreated = useCase.execute(publisher);
 
         return PublisherDtoMapper.fromDomain(publisherCreated);
     }

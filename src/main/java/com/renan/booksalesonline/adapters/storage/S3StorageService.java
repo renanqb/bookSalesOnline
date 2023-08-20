@@ -1,6 +1,7 @@
 package com.renan.booksalesonline.adapters.storage;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.renan.booksalesonline.application.ports.out.storage.StorageService;
@@ -14,9 +15,9 @@ import java.net.URISyntaxException;
 @Service
 public class S3StorageService implements StorageService {
 
-    private AmazonS3 amazonS3Client;
+    private AmazonS3Client amazonS3Client;
 
-    public S3StorageService(@Autowired AmazonS3 amazonS3Client) {
+    public S3StorageService(@Autowired AmazonS3Client amazonS3Client) {
         this.amazonS3Client = amazonS3Client;
     }
 

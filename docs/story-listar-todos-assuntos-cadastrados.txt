@@ -12,7 +12,7 @@ Story: Listar todos os assuntos cadastrados
 		Para construir esse caminho vamos seguir a estrutura de tarefas demonstrada abaixo.
 			- A arquitetura da aplicação é hexagonal (ports & adapters) por isso se atentar na criação das interfaces quando necessário.
 			- Toda classe criada devemos considerar criação e/ou refatoração testes unitário.
-			- A cada task concluída, realizar commitar na branch que estamos trabalhando. 
+			- A cada task concluída, realizar commit na branch que estamos trabalhando.
 			- Considerar como "task concluída " código sem problemas de build e com a cobertura do jacoco considerada localmente.
 			
 		0 - Criar branch "feature-subjects-get-all"no github

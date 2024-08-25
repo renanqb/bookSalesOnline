@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class PublicationRepository implements PublicationDataQuery {
 
-    private PublicationData publicationData;
+    private final PublicationData publicationData;
 
     public PublicationRepository(@Autowired PublicationData publicationData) {
         this.publicationData = publicationData;

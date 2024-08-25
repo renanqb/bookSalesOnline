@@ -22,11 +22,11 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
     @Autowired private RestClientTesting restClientTesting;
     @Autowired private LanguageRepository languageRepository;
     @Autowired private LanguageController languageController;
-    private Language english = new Language(0, "english");
-    private Language portuguese = new Language(0, "portuguese");
-    private Language chinese = new Language(0, "chinese");
+    private final Language english = new Language(0, "english");
+    private final Language portuguese = new Language(0, "portuguese");
+    private final Language chinese = new Language(0, "chinese");
     private int createdLanguageId = 0;
-    private String basePath = "languages";
+    private final String basePath = "languages";
 
     @BeforeAll
     @Transactional

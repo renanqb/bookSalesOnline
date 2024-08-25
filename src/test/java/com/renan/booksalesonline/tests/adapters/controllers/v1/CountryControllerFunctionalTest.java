@@ -26,15 +26,13 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
     @Autowired private RestClientTesting restClientTesting;
     @Autowired private CountryRepository countryRepository;
     @Autowired private PublisherRepository publisherRepository;
-    @Autowired private CountryController countryController;
-
-    private Country argentina = new Country(0, "argentina", "argentinian");
-    private Country brazil = new Country(0, "brazil", "brazilian");
-    private Country chile = new Country(0, "chile", "chilean");
-    private Publisher publisher1 = new Publisher(0, "publisher1", "history1", brazil);
-    private Publisher publisher2 = new Publisher(0, "publisher2", "history2", brazil);
+    private final Country argentina = new Country(0, "argentina", "argentinian");
+    private final Country brazil = new Country(0, "brazil", "brazilian");
+    private final Country chile = new Country(0, "chile", "chilean");
+    private final Publisher publisher1 = new Publisher(0, "publisher1", "history1", brazil);
+    private final Publisher publisher2 = new Publisher(0, "publisher2", "history2", brazil);
     private int createdCountryId = 0;
-    private String basePath = "countries";
+    private final String basePath = "countries";
 
     @BeforeAll
     @Transactional

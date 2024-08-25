@@ -17,9 +17,9 @@ import java.net.URISyntaxException;
 @Service
 public class UpdatePublicationImageUseCaseImpl implements UpdatePublicationImageUseCase {
 
-    private CreatePublicationImageUseCase createPublicationImageUseCase;
-    private RepositoryMediator repositoryMediator;
-    private StorageService storageService;
+    private final CreatePublicationImageUseCase createPublicationImageUseCase;
+    private final RepositoryMediator repositoryMediator;
+    private final StorageService storageService;
 
     public UpdatePublicationImageUseCaseImpl(
             @Autowired CreatePublicationImageUseCase createPublicationImageUseCase,

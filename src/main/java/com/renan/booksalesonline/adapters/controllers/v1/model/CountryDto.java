@@ -5,7 +5,7 @@ import com.renan.booksalesonline.adapters.controllers.v1.commom.BaseDto;
 
 public class CountryDto extends BaseDto {
 
-    @JsonProperty("gentilic") private String gentilic;
+    @JsonProperty("gentilic") private final String gentilic;
 
     public CountryDto() { this("", ""); }
 

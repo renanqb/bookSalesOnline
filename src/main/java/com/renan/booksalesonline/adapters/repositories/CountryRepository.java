@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class CountryRepository implements DataQuery<Country>, DataCommand<Country> {
 
-    private CountryData countryData;
+    private final CountryData countryData;
 
     public CountryRepository(@Autowired CountryData countryData) {
         this.countryData = countryData;

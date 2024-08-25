@@ -152,6 +152,14 @@
 			<version>1.12.481</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.tngtech.archunit/archunit-junit5 -->
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit5</artifactId>
+			<version>1.2.1</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -79,10 +80,10 @@ public class ImageRepositoryTest {
     @Test
     public void should_get_image_entities_given_a_publication() {
 
-        var imageEntities = Arrays.asList(new ImageEntity(1, "name1", "url1", 10));
+        var imageEntities = List.of(new ImageEntity(1, "name1", "url1", 10));
         when(imageData.getImagesByPublicationId(anyInt())).thenReturn(imageEntities);
 
-        var expectedImages = Arrays.asList(new PublicationImage(1, "name1", "url1", 10));
+        var expectedImages = List.of(new PublicationImage(1, "name1", "url1", 10));
 
         var publicationImages = imageRepository.getImagesByPublicationId(10);
         var expected = expectedImages.get(0);

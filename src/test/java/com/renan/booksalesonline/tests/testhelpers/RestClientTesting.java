@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class RestClientTesting {
 
-    private String baseUrl;
-    private TestRestTemplate testRestTemplate;
+    private final String baseUrl;
+    private final TestRestTemplate testRestTemplate;
 
     public RestClientTesting(@Value("${server.port}") Integer port) {
 

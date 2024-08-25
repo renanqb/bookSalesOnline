@@ -6,7 +6,7 @@ import com.renan.booksalesonline.adapters.controllers.v1.commom.ValueObjectDto;
 
 public class PublisherDto extends BaseDto {
 
-    @JsonProperty("history") private String history;
+    @JsonProperty("history") private final String history;
     @JsonProperty("country") private ValueObjectDto country;
 
     public PublisherDto() {

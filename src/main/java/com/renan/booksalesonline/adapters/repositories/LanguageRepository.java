@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class LanguageRepository implements DataQuery<Language>, DataCommand<Language> {
 
-    private LanguageData languageData;
+    private final LanguageData languageData;
 
     public LanguageRepository(@Autowired LanguageData languageData) {
         this.languageData = languageData;

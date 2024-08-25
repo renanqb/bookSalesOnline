@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class ImageRepository implements ImageDataQuery, DataCommand<PublicationImage> {
 
-    private ImageData imageData;
+    private final ImageData imageData;
 
     public ImageRepository(@Autowired ImageData imageData) {
         this.imageData = imageData;

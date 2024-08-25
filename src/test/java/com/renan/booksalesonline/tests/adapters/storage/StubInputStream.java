@@ -6,7 +6,7 @@ import java.io.InputStream;
 public class StubInputStream extends InputStream {
     private final int desiredSize;
     private final byte[] seed;
-    private int actualSize = 0;
+    private final int actualSize = 0;
 
     public StubInputStream(int desiredSize, String seed) {
         this.desiredSize = desiredSize;

@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class PublisherRepository implements PublisherDataQuery, DataCommand<Publisher> {
 
-    private PublisherData publisherData;
+    private final PublisherData publisherData;
 
     public PublisherRepository(@Autowired PublisherData publisherData) {
         this.publisherData = publisherData;

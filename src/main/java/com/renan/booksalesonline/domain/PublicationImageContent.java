@@ -11,9 +11,9 @@ import java.util.Locale;
 
 public class PublicationImageContent {
 
-    private String contentName;
-    private long contentLength;
-    private InputStream contentStream;
+    private final String contentName;
+    private final long contentLength;
+    private final InputStream contentStream;
 
     public PublicationImageContent(
             String contentName, long contentLength, InputStream contentStream

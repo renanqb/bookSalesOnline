@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -115,13 +116,13 @@ public class PublisherRepositoryTest {
     public void should_get_publisher_entities_from_a_given_country() {
 
         var countryEntity = new CountryEntity(1, "name", "gentilic");
-        var publisherEntities = Arrays.asList(
+        var publisherEntities = List.of(
                 new PublisherEntity(1, "name1", "history1", countryEntity)
         );
         when(publisherData.getPublishersByCountryId(anyInt())).thenReturn(publisherEntities);
 
         var country = new Country(1, "name", "gentilic");
-        var expectedPublishers = Arrays.asList(
+        var expectedPublishers = List.of(
                 new Publisher(1, "name1", "history1", country)
         );
 

@@ -18,8 +18,8 @@ import java.net.URISyntaxException;
 @Service
 public class CreatePublicationImageUseCaseImpl implements CreatePublicationImageUseCase {
 
-    private RepositoryMediator repositoryMediator;
-    private StorageService storageService;
+    private final RepositoryMediator repositoryMediator;
+    private final StorageService storageService;
 
     public CreatePublicationImageUseCaseImpl(
             @Autowired RepositoryMediator repositoryMediator,

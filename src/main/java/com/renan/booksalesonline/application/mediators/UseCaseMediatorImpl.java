@@ -18,7 +18,7 @@ import java.util.HashMap;
 @Component
 public class UseCaseMediatorImpl implements UseCaseMediator {
 
-    private HashMap<Class, Object> useCases = new HashMap<>();
+    private final HashMap<Class, Object> useCases = new HashMap<>();
 
     public UseCaseMediatorImpl(
             @Autowired GetAllEntitiesUseCase getAllEntitiesUseCase,

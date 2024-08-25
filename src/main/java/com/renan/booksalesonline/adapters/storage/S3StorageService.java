@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 @Service
 public class S3StorageService implements StorageService {
 
-    private AmazonS3Client amazonS3Client;
+    private final AmazonS3Client amazonS3Client;
 
     public S3StorageService(@Autowired AmazonS3Client amazonS3Client) {
         this.amazonS3Client = amazonS3Client;

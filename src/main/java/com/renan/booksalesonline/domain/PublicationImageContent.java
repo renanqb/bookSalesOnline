@@ -2,6 +2,7 @@ package com.renan.booksalesonline.domain;
 
 import com.renan.booksalesonline.domain.enums.ImageExtension;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;
+import lombok.Data;
 
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -9,12 +10,25 @@ import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.Locale;
 
-public record PublicationImageContent(String contentName, long contentLength, InputStream contentStream) {
+@Data
+public class PublicationImageContent {
+
+    private String contentName;
+    private long contentLength;
+    private InputStream contentStream;
+
+    public PublicationImageContent(
+            String contentName, long contentLength, InputStream contentStream
+    ) {
+        this.contentName = contentName;
+        this.contentLength = contentLength;
+        this.contentStream = contentStream;
+    }
 
     public ImageExtension getContentExtension() {
 
-        var indexOf = contentName().lastIndexOf(".");
-        var extension = contentName().substring(indexOf)
+        var indexOf = getContentName().lastIndexOf(".");
+        var extension = getContentName().substring(indexOf)
                 .replace(".", "")
                 .toUpperCase(Locale.ROOT)
                 .trim();

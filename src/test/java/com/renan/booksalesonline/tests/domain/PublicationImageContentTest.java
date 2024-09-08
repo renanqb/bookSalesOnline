@@ -32,10 +32,10 @@ public class PublicationImageContentTest {
                 multipartFile.getInputStream()
         );
 
-        assertThat(publicationImageContent.contentName()).isEqualTo(multipartFile.getOriginalFilename());
-        assertThat(publicationImageContent.contentLength()).isEqualTo(0);
+        assertThat(publicationImageContent.getContentName()).isEqualTo(multipartFile.getOriginalFilename());
+        assertThat(publicationImageContent.getContentLength()).isEqualTo(0);
         assertThat(publicationImageContent.getContentDate()).isAfterOrEqualTo(instantDate);
         assertThat(publicationImageContent.getContentExtension()).isEqualTo(ImageExtension.PNG);
-        assertThat(publicationImageContent.contentStream()).isNotNull();
+        assertThat(publicationImageContent.getContentStream()).isNotNull();
     }
 }

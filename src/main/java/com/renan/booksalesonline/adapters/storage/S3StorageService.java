@@ -21,15 +21,15 @@ public class S3StorageService implements StorageService {
     public String save(String bucket, PublicationImage publicationImage) throws IOException, URISyntaxException {
 
         var requestMetadata = new ObjectMetadata();
-        requestMetadata.addUserMetadata("original-contentName", publicationImage.getImageContent().contentName());
+        requestMetadata.addUserMetadata("original-contentName", publicationImage.getImageContent().getContentName());
         requestMetadata.setContentType(publicationImage.getImageContent().getContentExtension().getContentType());
-        requestMetadata.setContentLength(publicationImage.getImageContent().contentLength());
+        requestMetadata.setContentLength(publicationImage.getImageContent().getContentLength());
         requestMetadata.setLastModified(publicationImage.getImageContent().getContentDate());
 
         var putRequest = new PutObjectRequest(
                 bucket,
                 publicationImage.getName(),
-                publicationImage.getImageContent().contentStream(),
+                publicationImage.getImageContent().getContentStream(),
                 requestMetadata
         );
 

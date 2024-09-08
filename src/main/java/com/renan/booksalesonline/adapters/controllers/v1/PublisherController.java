@@ -10,18 +10,15 @@ import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreateP
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
 import com.renan.booksalesonline.domain.Publisher;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 public class PublisherController {
 
     private final UseCaseMediator mediator;
-
-    public PublisherController(@Autowired UseCaseMediator mediator) {
-        this.mediator = mediator;
-    }
 
     @GetMapping("/publishers")
     @ResponseStatus(value = HttpStatus.OK)

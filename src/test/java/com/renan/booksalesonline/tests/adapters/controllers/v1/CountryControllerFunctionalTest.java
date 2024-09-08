@@ -1,6 +1,5 @@
 package com.renan.booksalesonline.tests.adapters.controllers.v1;
 
-import com.renan.booksalesonline.adapters.controllers.v1.CountryController;
 import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
 import com.renan.booksalesonline.adapters.repositories.CountryRepository;
 import com.renan.booksalesonline.adapters.repositories.PublisherRepository;
@@ -54,10 +53,11 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
         var country = response.getBody();
+        assert country != null;
         createdCountryId = (int) country.getId();
         assertThat(country.getId()).isInstanceOfAny(Integer.class);
         assertThat(country.getName()).isEqualTo("usa_a");
-        assertThat(country.getGentilic()).isEqualTo("usa_a");
+        assertThat(country.getNationality()).isEqualTo("usa_a");
     }
 
     @Test
@@ -69,9 +69,10 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var country = response.getBody();
+        assert country != null;
         assertThat((int)country.getId()).isEqualTo(createdCountryId);
         assertThat(country.getName()).isEqualTo("USA");
-        assertThat(country.getGentilic()).isEqualTo("American");
+        assertThat(country.getNationality()).isEqualTo("American");
     }
 
     @Test
@@ -82,9 +83,10 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var country = response.getBody();
+        assert country != null;
         assertThat(country.getId()).isEqualTo(createdCountryId);
         assertThat(country.getName()).isEqualTo("USA");
-        assertThat(country.getGentilic()).isEqualTo("American");
+        assertThat(country.getNationality()).isEqualTo("American");
     }
 
     @Test
@@ -95,9 +97,10 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var country = response.getBody();
+        assert country != null;
         assertThat(country.getId()).isEqualTo(createdCountryId);
         assertThat(country.getName()).isEqualTo("USA");
-        assertThat(country.getGentilic()).isEqualTo("American");
+        assertThat(country.getNationality()).isEqualTo("American");
     }
 
     @Test
@@ -117,6 +120,7 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var countries = response.getBody();
+        assert countries != null;
         assertThat(countries.length).isEqualTo(3);
     }
 
@@ -130,6 +134,7 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var publishers = response.getBody();
+        assert publishers != null;
         assertThat(publishers.length).isEqualTo(2);
     }
 

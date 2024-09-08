@@ -7,7 +7,7 @@ import com.renan.booksalesonline.application.ports.out.storage.StorageService;
 import com.renan.booksalesonline.domain.PublicationImage;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;
 import com.renan.booksalesonline.domain.exceptions.ValidationException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,22 +15,12 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @Service
+@AllArgsConstructor
 public class UpdatePublicationImageUseCaseImpl implements UpdatePublicationImageUseCase {
 
     private final CreatePublicationImageUseCase createPublicationImageUseCase;
     private final RepositoryMediator repositoryMediator;
     private final StorageService storageService;
-
-    public UpdatePublicationImageUseCaseImpl(
-            @Autowired CreatePublicationImageUseCase createPublicationImageUseCase,
-            @Autowired RepositoryMediator repositoryMediator,
-            @Autowired StorageService storageService
-    ) {
-
-        this.createPublicationImageUseCase = createPublicationImageUseCase;
-        this.repositoryMediator = repositoryMediator;
-        this.storageService = storageService;
-    }
 
     @Override
     @Transactional

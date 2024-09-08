@@ -13,6 +13,15 @@ public class CountryDtoTest {
         var countryDto = new CountryDto("Brazil", "Brazilian");
         assertThat(countryDto.getId()).isEqualTo(0);
         assertThat(countryDto.getName()).isEqualTo("Brazil");
-        assertThat(countryDto.getGentilic()).isEqualTo("Brazilian");
+        assertThat(countryDto.getNationality()).isEqualTo("Brazilian");
+    }
+
+    @Test
+    public void should_create_a_default_country_dto_instance() {
+
+        var countryDto = new CountryDto();
+        assertThat(countryDto.getId()).isEqualTo(0);
+        assertThat(countryDto.getName()).isNull();
+        assertThat(countryDto.getNationality()).isNull();
     }
 }

@@ -1,10 +1,14 @@
 package com.renan.booksalesonline.adapters.controllers.v1.commom;
 
-public class ValueObjectDto extends BaseDto {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-    public ValueObjectDto() {
-        this(0, "");
-    }
+@Data
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+public class ValueObjectDto extends BaseDto {
 
     public ValueObjectDto(Object id, String name) {
         super(name);

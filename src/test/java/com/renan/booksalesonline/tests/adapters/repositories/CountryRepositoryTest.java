@@ -50,7 +50,7 @@ public class CountryRepositoryTest {
 
             assertThat((int)actual.getId()).isEqualTo((int)expected.getId());
             assertThat(actual.getName()).isEqualTo(expected.getName());
-            assertThat(actual.getGentilic()).isEqualTo(expected.getGentilic());
+            assertThat(actual.getNationality()).isEqualTo(expected.getNationality());
         }
     }
 
@@ -65,7 +65,7 @@ public class CountryRepositoryTest {
 
         assertThat((int)country.getId()).isEqualTo((int)expected.getId());
         assertThat(country.getName()).isEqualTo(expected.getName());
-        assertThat(country.getGentilic()).isEqualTo(expected.getGentilic());
+        assertThat(country.getNationality()).isEqualTo(expected.getNationality());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class CountryRepositoryTest {
 
         assertThat((int)country.getId()).isEqualTo((int)expected.getId());
         assertThat(country.getName()).isEqualTo(expected.getName());
-        assertThat(country.getGentilic()).isEqualTo(expected.getGentilic());
+        assertThat(country.getNationality()).isEqualTo(expected.getNationality());
     }
 
     @Test

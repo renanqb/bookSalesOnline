@@ -32,6 +32,6 @@ public class LanguageEntityMapper {
         if (language == null)
             return null;
 
-        return new LanguageEntity(language.getId(), language.getName());
+        return new LanguageEntity((int) language.getId(), language.getName());
     }
 }

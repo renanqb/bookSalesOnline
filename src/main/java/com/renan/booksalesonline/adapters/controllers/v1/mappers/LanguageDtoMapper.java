@@ -11,6 +11,7 @@ public class LanguageDtoMapper {
 
         return new Language((int)languageRequest.getId(), languageRequest.getName());
     }
+
     public static LanguageDto fromDomain(Language language) {
 
         var languageDto = new LanguageDto(language.getName());

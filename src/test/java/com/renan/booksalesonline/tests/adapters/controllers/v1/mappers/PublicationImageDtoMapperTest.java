@@ -35,11 +35,11 @@ public class PublicationImageDtoMapperTest {
         assertThat(actual.getContentUrl()).isEmpty();
         assertThat(actual.getPublicationId()).isEqualTo(0);
         assertThat(actual.getImageContent()).isNotNull();
-        assertThat(actual.getImageContent().getContentName()).isEqualTo("file.jpeg");
+        assertThat(actual.getImageContent().contentName()).isEqualTo("file.jpeg");
         assertThat(actual.getImageContent().getContentDate()).isAfter(instantDate);
-        assertThat(actual.getImageContent().getContentLength()).isEqualTo(0);
+        assertThat(actual.getImageContent().contentLength()).isEqualTo(0);
         assertThat(actual.getImageContent().getContentExtension()).isEqualTo(ImageExtension.JPEG);
-        assertThat(actual.getImageContent().getContentStream()).isNotNull();
+        assertThat(actual.getImageContent().contentStream()).isNotNull();
     }
 
     @Test

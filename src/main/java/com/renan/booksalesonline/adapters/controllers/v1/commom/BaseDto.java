@@ -1,26 +1,25 @@
 package com.renan.booksalesonline.adapters.controllers.v1.commom;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public abstract class BaseDto {
+import java.io.Serializable;
 
-    @JsonProperty("id") protected Object id;
-    @JsonProperty("name") protected String name;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public abstract class BaseDto implements Serializable {
+
+    @JsonProperty("id")
+    protected Object id = 0;
+
+    @JsonProperty("name")
+    protected String name;
 
     public BaseDto(String name) {
-        this.id = 0;
-        this.name = name;
-    }
-
-    public void setId(Object id) {
-        this.id = id;
-    }
-
-    public Object getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+        setId(0);
+        setName(name);
     }
 }

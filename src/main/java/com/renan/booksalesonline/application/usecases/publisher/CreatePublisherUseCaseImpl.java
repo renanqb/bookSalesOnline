@@ -6,21 +6,15 @@ import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreateP
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.Publisher;
 import com.renan.booksalesonline.domain.exceptions.ValidationException;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class CreatePublisherUseCaseImpl implements CreatePublisherUseCase {
 
     private final RepositoryMediator repositoryMediator;
     private final CreateEntityUseCase createEntityUseCaseImpl;
-
-    public CreatePublisherUseCaseImpl(
-            RepositoryMediator repositoryMediator,
-            CreateEntityUseCase createEntityUseCaseImpl
-    ) {
-        this.repositoryMediator = repositoryMediator;
-        this.createEntityUseCaseImpl = createEntityUseCaseImpl;
-    }
 
     public Publisher execute(Publisher publisher) throws NoSuchMethodException {
 

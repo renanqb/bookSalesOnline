@@ -12,12 +12,13 @@ public class CountryDtoMapper {
         return new Country(
                 (int)countryRequest.getId(),
                 countryRequest.getName(),
-                countryRequest.getGentilic()
+                countryRequest.getNationality()
         );
     }
+
     public static CountryDto fromDomain(Country country) {
 
-        var countryDto = new CountryDto(country.getName(), country.getGentilic());
+        var countryDto = new CountryDto(country.getName(), country.getNationality());
         countryDto.setId(country.getId());
 
         return countryDto;

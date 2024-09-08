@@ -16,4 +16,14 @@ public class ImageEntityTest {
         assertThat(expected.getUrl()).isEqualTo("url");
         assertThat(expected.getPublicationId()).isEqualTo(1);
     }
+
+    @Test
+    public void should_create_an_default_image_entity_instance() {
+
+        var expected = new ImageEntity();
+        assertThat(expected.getId()).isEqualTo(0);
+        assertThat(expected.getName()).isNull();
+        assertThat(expected.getUrl()).isNull();
+        assertThat(expected.getPublicationId()).isEqualTo(0);
+    }
 }

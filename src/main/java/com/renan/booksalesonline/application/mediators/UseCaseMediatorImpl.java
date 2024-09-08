@@ -10,6 +10,8 @@ import com.renan.booksalesonline.application.ports.in.usecases.publication.Updat
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -53,7 +55,6 @@ public class UseCaseMediatorImpl implements UseCaseMediator {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public <T> T get(Class<T> clazz) throws NoSuchMethodException {
 
         var useCase = (T) useCases.get(clazz);

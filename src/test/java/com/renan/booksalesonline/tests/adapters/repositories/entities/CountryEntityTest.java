@@ -13,7 +13,17 @@ public class CountryEntityTest {
         var expected = new CountryEntity(99, "Brazil", "Brazilian");
         assertThat(expected.getId()).isEqualTo(99);
         assertThat(expected.getName()).isEqualTo("Brazil");
-        assertThat(expected.getGentilic()).isEqualTo("Brazilian");
+        assertThat(expected.getNationality()).isEqualTo("Brazilian");
+
+    }
+
+    @Test
+    public void should_create_a_default_country_entity_instance() {
+
+        var expected = new CountryEntity();
+        assertThat(expected.getId()).isEqualTo(0);
+        assertThat(expected.getName()).isNull();
+        assertThat(expected.getNationality()).isNull();
 
     }
 }

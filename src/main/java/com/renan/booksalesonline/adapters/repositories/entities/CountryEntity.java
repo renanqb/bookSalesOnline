@@ -1,6 +1,14 @@
 package com.renan.booksalesonline.adapters.repositories.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "country")
 public class CountryEntity {
@@ -14,39 +22,6 @@ public class CountryEntity {
     private String name;
 
     @Column(name = "gentilic", nullable = false)
-    private String gentilic;
+    private String nationality;
 
-    protected CountryEntity() {
-        this(0, "", "");
-    }
-
-    public CountryEntity(int id, String name, String gentilic) {
-        setId(id);
-        setName(name);
-        setGentilic(gentilic);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGentilic() {
-        return gentilic;
-    }
-
-    public void setGentilic(String gentilic) {
-        this.gentilic = gentilic;
-    }
 }

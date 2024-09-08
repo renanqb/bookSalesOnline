@@ -6,18 +6,15 @@ import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.domain.Language;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 public class LanguageController {
 
     private final UseCaseMediator mediator;
-
-    public LanguageController(@Autowired UseCaseMediator mediator) {
-        this.mediator = mediator;
-    }
 
     @GetMapping("/languages")
     @ResponseStatus(value = HttpStatus.OK)

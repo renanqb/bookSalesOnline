@@ -1,8 +1,12 @@
 package com.renan.booksalesonline.domain;
 
 import com.renan.booksalesonline.domain.commom.BaseDomain;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-public class Publication extends BaseDomain {
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class Publication extends BaseDomain<Integer> {
 
     private Publisher publisher;
 
@@ -15,11 +19,4 @@ public class Publication extends BaseDomain {
         setPublisher(publisher);
     }
 
-    public Publisher getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
 }

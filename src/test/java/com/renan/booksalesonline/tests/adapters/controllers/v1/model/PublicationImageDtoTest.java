@@ -13,8 +13,8 @@ public class PublicationImageDtoTest {
         var dto = new PublicationImageDto();
 
         assertThat(dto.getId()).isEqualTo(0);
-        assertThat(dto.getName()).isEqualTo("");
-        assertThat(dto.getUrl()).isEqualTo("");
+        assertThat(dto.getName()).isNull();
+        assertThat(dto.getUrl()).isNull();
         assertThat(dto.getPublicationId()).isEqualTo(0);
     }
 

@@ -45,19 +45,19 @@ public class LanguageDtoMapperTest {
                 new Language(2, "name2"),
                 new Language(3, "name3")
         );
-        var expectedLanguageDtos = new LanguageDto[] {
+        var expectedLanguagesDto = new LanguageDto[] {
                 new LanguageDto("name1"),
                 new LanguageDto("name2"),
                 new LanguageDto("name3")
         };
-        expectedLanguageDtos[0].setId(1);
-        expectedLanguageDtos[1].setId(2);
-        expectedLanguageDtos[2].setId(3);
+        expectedLanguagesDto[0].setId(1);
+        expectedLanguagesDto[1].setId(2);
+        expectedLanguagesDto[2].setId(3);
 
-        var actualLanguageDtos = LanguageDtoMapper.fromDomain(languages);
+        var actualLanguagesDto = LanguageDtoMapper.fromDomain(languages);
 
-        assertThat(actualLanguageDtos)
+        assertThat(actualLanguagesDto)
                 .usingRecursiveComparison()
-                .isEqualTo(expectedLanguageDtos);
+                .isEqualTo(expectedLanguagesDto);
     }
 }

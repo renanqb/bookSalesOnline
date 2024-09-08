@@ -47,7 +47,7 @@ public class PublisherControllerFunctionalTest extends BookSalesOnlineContainerT
     @Order(1)
     public void should_create_a_publisher_successfully() throws NoSuchMethodException {
 
-        var countryDto = new CountryDto(brazil.getName(), brazil.getGentilic());
+        var countryDto = new CountryDto(brazil.getName(), brazil.getNationality());
         countryDto.setId(brazil.getId());
         var publisher4 = new PublisherDto("publisher4_a", "history4_a", countryDto);
         var response = restClientTesting.post(PublisherDto.class, basePath, publisher4);
@@ -65,7 +65,7 @@ public class PublisherControllerFunctionalTest extends BookSalesOnlineContainerT
     @Order(2)
     public void should_update_created_publisher_successfully() throws NoSuchMethodException {
 
-        var countryDto = new CountryDto(brazil.getName(), brazil.getGentilic());
+        var countryDto = new CountryDto(brazil.getName(), brazil.getNationality());
         countryDto.setId(brazil.getId());
         var publisher4 = new PublisherDto("publisher4", "history4", countryDto);
         var response = restClientTesting.put(PublisherDto.class, basePath + "/" + createdPublisherId, publisher4);

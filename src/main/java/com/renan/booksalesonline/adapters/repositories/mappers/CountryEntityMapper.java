@@ -2,7 +2,6 @@ package com.renan.booksalesonline.adapters.repositories.mappers;
 
 import com.renan.booksalesonline.adapters.repositories.entities.CountryEntity;
 import com.renan.booksalesonline.domain.Country;
-import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +17,7 @@ public class CountryEntityMapper {
         return new Country(
                 countryEntity.getId(),
                 countryEntity.getName(),
-                countryEntity.getGentilic()
+                countryEntity.getNationality()
         );
     }
 
@@ -40,7 +39,7 @@ public class CountryEntityMapper {
         return new CountryEntity(
                 country.getId(),
                 country.getName(),
-                country.getGentilic()
+                country.getNationality()
         );
     }
 }

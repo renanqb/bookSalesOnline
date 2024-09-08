@@ -46,6 +46,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
         var language = response.getBody();
+        assert language != null;
         assertThat(language.getId()).isInstanceOfAny(Integer.class);
         assertThat(language.getName()).isEqualTo("spanish_a");
 
@@ -61,6 +62,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var language = response.getBody();
+        assert language != null;
         assertThat((int)language.getId()).isEqualTo(createdLanguageId);
         assertThat(language.getName()).isEqualTo("spanish");
     }
@@ -73,6 +75,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var language = response.getBody();
+        assert language != null;
         assertThat(language.getId()).isEqualTo(createdLanguageId);
         assertThat(language.getName()).isEqualTo("spanish");
     }
@@ -94,6 +97,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var countries = response.getBody();
+        assert countries != null;
         assertThat(countries.length).isEqualTo(3);
     }
 

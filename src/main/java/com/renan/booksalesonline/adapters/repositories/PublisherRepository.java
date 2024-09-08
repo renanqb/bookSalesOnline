@@ -5,19 +5,16 @@ import com.renan.booksalesonline.adapters.repositories.mappers.PublisherEntityMa
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQuery;
 import com.renan.booksalesonline.domain.Publisher;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@AllArgsConstructor
 public class PublisherRepository implements PublisherDataQuery, DataCommand<Publisher> {
 
     private final PublisherData publisherData;
-
-    public PublisherRepository(@Autowired PublisherData publisherData) {
-        this.publisherData = publisherData;
-    }
 
     @Override
     public List<Publisher> getAll() {
@@ -55,8 +52,7 @@ public class PublisherRepository implements PublisherDataQuery, DataCommand<Publ
     @Override
     public boolean existsPublisherByCountryId(int countryId) {
 
-        var exists = publisherData.existsPublisherByCountryId(countryId);
-        return exists;
+        return publisherData.existsPublisherByCountryId(countryId);
     }
 
     @Override

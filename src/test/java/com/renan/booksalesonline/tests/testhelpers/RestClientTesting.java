@@ -3,6 +3,7 @@ package com.renan.booksalesonline.tests.testhelpers;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ public class RestClientTesting {
 
     public RestClientTesting(@Value("${server.port}") Integer port) {
 
-        baseUrl = "http://localhost:" + port + "/v1/api";
+        baseUrl = "http://localhost:" + port + "/api/v1";
         testRestTemplate = new TestRestTemplate();
     }
 

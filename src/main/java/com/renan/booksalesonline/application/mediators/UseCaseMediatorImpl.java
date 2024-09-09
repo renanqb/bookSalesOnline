@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.mediators;
 
-import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.common.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
@@ -10,8 +10,6 @@ import com.renan.booksalesonline.application.ports.in.usecases.publication.Updat
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.RemovePublisherUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.UpdatePublisherUseCase;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

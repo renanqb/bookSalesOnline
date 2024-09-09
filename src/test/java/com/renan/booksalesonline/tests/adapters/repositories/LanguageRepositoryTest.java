@@ -11,6 +11,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -36,7 +38,8 @@ public class LanguageRepositoryTest {
                 new LanguageEntity(2, "name2"),
                 new LanguageEntity(3, "name3")
         );
-        when(languageData.findAll()).thenReturn(languageEntities);
+        var languageEntitiesPage = new PageImpl<>(languageEntities);
+        when(languageData.findAll(any(PageRequest.class))).thenReturn(languageEntitiesPage);
 
         var expectedLanguages = Arrays.asList(
                 new Language(1, "name1"),
@@ -44,7 +47,7 @@ public class LanguageRepositoryTest {
                 new Language(3, "name3")
         );
 
-        var languages = languageRepository.getAll();
+        var languages = languageRepository.getAll(0, 20);
 
         for (int i = 0; i < 3; i++) {
             var expected = expectedLanguages.get(i);

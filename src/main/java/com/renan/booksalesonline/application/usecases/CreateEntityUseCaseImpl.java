@@ -1,7 +1,7 @@
 package com.renan.booksalesonline.application.usecases;
 
 import com.renan.booksalesonline.application.ports.in.usecases.CreateEntityUseCase;
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.domain.commom.BaseDomain;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

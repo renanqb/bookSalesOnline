@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.usecases.publication;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.CreatePublicationImageUseCase;
 import com.renan.booksalesonline.application.ports.out.publication.PublicationDataQuery;
 import com.renan.booksalesonline.application.ports.out.storage.StorageService;

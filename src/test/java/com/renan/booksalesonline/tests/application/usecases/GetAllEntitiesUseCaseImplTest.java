@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.tests.application.usecases;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.application.usecases.GetAllEntitiesUseCaseImpl;
 import com.renan.booksalesonline.domain.Country;
@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +33,7 @@ public class GetAllEntitiesUseCaseImplTest {
         );
 
         when(mediator.getQuery(Country.class)).thenReturn(countryQuery);
-        when(countryQuery.getAll()).thenReturn(mockedCountries);
+        when(countryQuery.getAll(anyInt(), anyInt())).thenReturn(mockedCountries);
 
         var countries = getAllEntitiesUseCase.execute(Country.class);
         assertThat(countries).isEqualTo(mockedCountries);

@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.tests.application.usecases.publisher;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQuery;
 import com.renan.booksalesonline.application.usecases.publisher.GetPublishersByCountryUseCaseImpl;
 import com.renan.booksalesonline.domain.Publisher;

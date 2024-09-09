@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.usecases.publication;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.CreatePublicationImageUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.UpdatePublicationImageUseCase;
 import com.renan.booksalesonline.application.ports.out.storage.StorageService;
@@ -26,6 +26,8 @@ public class UpdatePublicationImageUseCaseImpl implements UpdatePublicationImage
     @Transactional
     public PublicationImage execute(PublicationImage publicationImage, int id)
             throws IOException, NoSuchMethodException, URISyntaxException, FileExtensionNotAccepted {
+
+        assert id > 0;
 
         var query = repositoryMediator.getQuery(PublicationImage.class);
         var persistedImage = query.getById(id);

@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.usecases.publisher;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.CreateEntityUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;
 import com.renan.booksalesonline.domain.Country;

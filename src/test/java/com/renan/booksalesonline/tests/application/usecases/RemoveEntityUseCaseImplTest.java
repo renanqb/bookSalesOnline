@@ -1,12 +1,11 @@
 package com.renan.booksalesonline.tests.application.usecases;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.application.usecases.RemoveEntityUseCaseImpl;
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.exceptions.RemoveException;
-import com.renan.booksalesonline.domain.exceptions.UpdateException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

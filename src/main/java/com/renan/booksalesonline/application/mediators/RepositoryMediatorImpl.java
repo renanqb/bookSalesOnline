@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.mediators;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.application.ports.out.base.DataCommandQuery;

@@ -13,18 +13,16 @@ import com.renan.booksalesonline.application.ports.in.usecases.UpdateEntityUseCa
 import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;
 import com.renan.booksalesonline.domain.Country;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 public class CountryController {
 
     private final UseCaseMediator mediator;
-
-    public CountryController(@Autowired UseCaseMediator mediator) {
-        this.mediator = mediator;
-    }
 
     @GetMapping("/countries")
     @ResponseStatus(value = HttpStatus.OK)
@@ -39,6 +37,7 @@ public class CountryController {
 
     @GetMapping("/countries/{id}")
     @ResponseStatus(value = HttpStatus.OK)
+    @Cacheable(value = "countryDto", key = "#id")
     public CountryDto getCountryById(@PathVariable("id") int id)
             throws NoSuchMethodException, JsonProcessingException {
 

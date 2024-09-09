@@ -38,7 +38,7 @@ public class PublisherEntityMapper {
             return null;
 
         return new PublisherEntity(
-                publisher.getId(),
+                (Integer) publisher.getId(),
                 publisher.getName(),
                 publisher.getHistory(),
                 CountryEntityMapper.fromDomain(publisher.getCountry())

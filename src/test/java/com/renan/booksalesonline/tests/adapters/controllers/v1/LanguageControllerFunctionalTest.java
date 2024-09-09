@@ -22,11 +22,11 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
     @Autowired private RestClientTesting restClientTesting;
     @Autowired private LanguageRepository languageRepository;
     @Autowired private LanguageController languageController;
-    private Language english = new Language(0, "english");
-    private Language portuguese = new Language(0, "portuguese");
-    private Language chinese = new Language(0, "chinese");
+    private final Language english = new Language(0, "english");
+    private final Language portuguese = new Language(0, "portuguese");
+    private final Language chinese = new Language(0, "chinese");
     private int createdLanguageId = 0;
-    private String basePath = "languages";
+    private final String basePath = "languages";
 
     @BeforeAll
     @Transactional
@@ -46,6 +46,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
         var language = response.getBody();
+        assert language != null;
         assertThat(language.getId()).isInstanceOfAny(Integer.class);
         assertThat(language.getName()).isEqualTo("spanish_a");
 
@@ -61,6 +62,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var language = response.getBody();
+        assert language != null;
         assertThat((int)language.getId()).isEqualTo(createdLanguageId);
         assertThat(language.getName()).isEqualTo("spanish");
     }
@@ -73,6 +75,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var language = response.getBody();
+        assert language != null;
         assertThat(language.getId()).isEqualTo(createdLanguageId);
         assertThat(language.getName()).isEqualTo("spanish");
     }
@@ -94,6 +97,7 @@ public class LanguageControllerFunctionalTest extends BookSalesOnlineContainerTe
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         var countries = response.getBody();
+        assert countries != null;
         assertThat(countries.length).isEqualTo(3);
     }
 

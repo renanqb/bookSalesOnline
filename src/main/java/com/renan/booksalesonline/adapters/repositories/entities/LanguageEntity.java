@@ -1,7 +1,14 @@
 package com.renan.booksalesonline.adapters.repositories.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "language")
 public class LanguageEntity {
@@ -13,29 +20,4 @@ public class LanguageEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    protected LanguageEntity() {
-        this(0, "");
-    }
-
-    public LanguageEntity(int id, String name) {
-        setId(id);
-        setName(name);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

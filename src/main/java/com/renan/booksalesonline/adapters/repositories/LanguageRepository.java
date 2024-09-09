@@ -5,19 +5,16 @@ import com.renan.booksalesonline.adapters.repositories.mappers.LanguageEntityMap
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.domain.Language;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@AllArgsConstructor
 public class LanguageRepository implements DataQuery<Language>, DataCommand<Language> {
 
-    private LanguageData languageData;
-
-    public LanguageRepository(@Autowired LanguageData languageData) {
-        this.languageData = languageData;
-    }
+    private final LanguageData languageData;
 
     @Override
     public List<Language> getAll() {

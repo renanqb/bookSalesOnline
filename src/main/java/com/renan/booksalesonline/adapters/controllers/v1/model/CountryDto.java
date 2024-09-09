@@ -2,19 +2,22 @@ package com.renan.booksalesonline.adapters.controllers.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.renan.booksalesonline.adapters.controllers.v1.commom.BaseDto;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor(force = true)
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class CountryDto extends BaseDto {
 
-    @JsonProperty("gentilic") private String gentilic;
+    @JsonProperty("nationality")
+    private final String nationality;
 
-    public CountryDto() { this("", ""); }
-
-    public CountryDto(String name, String gentilic) {
+    public CountryDto(String name, String nationality) {
         super(name);
-        this.gentilic = gentilic;
-    }
-
-    public String getGentilic() {
-        return gentilic;
+        this.nationality = nationality;
     }
 }

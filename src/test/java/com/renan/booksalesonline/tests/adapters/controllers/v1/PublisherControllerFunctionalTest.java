@@ -26,12 +26,12 @@ public class PublisherControllerFunctionalTest extends BookSalesOnlineContainerT
     @Autowired private CountryRepository countryRepository;
     @Autowired private PublisherRepository publisherRepository;
     @Autowired private PublisherController publisherController;
-    private Country brazil = new Country(0, "brazil", "brazilian");
-    private Publisher publisher1 = new Publisher(0, "publisher1", "history1", brazil);
-    private Publisher publisher2 = new Publisher(0, "publisher2", "history2", brazil);
-    private Publisher publisher3 = new Publisher(0, "publisher3", "history3", brazil);
+    private final Country brazil = new Country(0, "brazil", "brazilian");
+    private final Publisher publisher1 = new Publisher(0, "publisher1", "history1", brazil);
+    private final Publisher publisher2 = new Publisher(0, "publisher2", "history2", brazil);
+    private final Publisher publisher3 = new Publisher(0, "publisher3", "history3", brazil);
     private int createdPublisherId = 0;
-    private String basePath = "publishers";
+    private final String basePath = "publishers";
 
     @BeforeAll
     @Transactional
@@ -47,7 +47,7 @@ public class PublisherControllerFunctionalTest extends BookSalesOnlineContainerT
     @Order(1)
     public void should_create_a_publisher_successfully() throws NoSuchMethodException {
 
-        var countryDto = new CountryDto(brazil.getName(), brazil.getGentilic());
+        var countryDto = new CountryDto(brazil.getName(), brazil.getNationality());
         countryDto.setId(brazil.getId());
         var publisher4 = new PublisherDto("publisher4_a", "history4_a", countryDto);
         var response = restClientTesting.post(PublisherDto.class, basePath, publisher4);
@@ -65,7 +65,7 @@ public class PublisherControllerFunctionalTest extends BookSalesOnlineContainerT
     @Order(2)
     public void should_update_created_publisher_successfully() throws NoSuchMethodException {
 
-        var countryDto = new CountryDto(brazil.getName(), brazil.getGentilic());
+        var countryDto = new CountryDto(brazil.getName(), brazil.getNationality());
         countryDto.setId(brazil.getId());
         var publisher4 = new PublisherDto("publisher4", "history4", countryDto);
         var response = restClientTesting.put(PublisherDto.class, basePath + "/" + createdPublisherId, publisher4);

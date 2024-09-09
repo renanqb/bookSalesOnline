@@ -8,7 +8,7 @@ import com.renan.booksalesonline.domain.PublicationImage;
 import com.renan.booksalesonline.domain.Publication;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;
 import com.renan.booksalesonline.domain.exceptions.ValidationException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,18 +16,11 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @Service
+@AllArgsConstructor
 public class CreatePublicationImageUseCaseImpl implements CreatePublicationImageUseCase {
 
-    private RepositoryMediator repositoryMediator;
-    private StorageService storageService;
-
-    public CreatePublicationImageUseCaseImpl(
-            @Autowired RepositoryMediator repositoryMediator,
-            @Autowired StorageService storageService) {
-
-        this.repositoryMediator = repositoryMediator;
-        this.storageService = storageService;
-    }
+    private final RepositoryMediator repositoryMediator;
+    private final StorageService storageService;
 
     @Override
     @Transactional
@@ -48,8 +41,7 @@ public class CreatePublicationImageUseCaseImpl implements CreatePublicationImage
         publicationImage.setPublicationId(publicationId);
 
         var command = repositoryMediator.getCommand(PublicationImage.class);
-        var persistedImage = command.save(publicationImage);
 
-        return persistedImage;
+        return command.save(publicationImage);
     }
 }

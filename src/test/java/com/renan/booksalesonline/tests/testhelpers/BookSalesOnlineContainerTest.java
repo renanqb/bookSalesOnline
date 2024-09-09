@@ -7,10 +7,10 @@ import org.testcontainers.containers.PostgreSQLContainer;
 public abstract class BookSalesOnlineContainerTest {
 
     @ClassRule
-    public static PostgreSQLContainer postgreSQLContainer =
+    public static PostgreSQLContainer<BookSalesOnlineDatabaseContainer> postgreSQLContainer =
             BookSalesOnlineDatabaseContainer.getInstance();
 
     @ClassRule
-    public static GenericContainer redisContainer =
+    public static GenericContainer<BookSalesOnlineRedisContainer> redisContainer =
             BookSalesOnlineRedisContainer.getInstance();
 }

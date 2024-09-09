@@ -43,15 +43,15 @@ public class RepositoryMediatorImpl implements RepositoryMediator {
     }
 
     @Override
-    public <T> DataQuery getQuery(Class<T> clazz) throws NoSuchMethodException {
+    public <T> DataQuery<T> getQuery(Class<T> clazz) throws NoSuchMethodException {
 
-        return (DataQuery) get(clazz, queries);
+        return (DataQuery<T>) get(clazz, queries);
     }
 
     @Override
-    public <T> DataCommand getCommand(Class<T> clazz) throws NoSuchMethodException {
+    public <T> DataCommand<T> getCommand(Class<T> clazz) throws NoSuchMethodException {
 
-        return (DataCommand) get(clazz, commands);
+        return (DataCommand<T>) get(clazz, commands);
     }
 
     private <T> T get(Class<T> clazz, HashMap<Class, DataCommandQuery> services) throws NoSuchMethodException {

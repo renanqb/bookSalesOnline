@@ -20,6 +20,16 @@ public class PublisherDtoTest {
     }
 
     @Test
+    public void should_create_a_default_publisher_dto_instance() {
+
+        var publisherDto = new PublisherDto();
+        assertThat(publisherDto.getId()).isEqualTo(0);
+        assertThat(publisherDto.getName()).isNull();
+        assertThat(publisherDto.getHistory()).isNull();
+        assertThat(publisherDto.getCountry()).isNull();
+    }
+
+    @Test
     public void should_create_a_publisher_dto_instance_without_country() {
 
         var publisherDto = new PublisherDto("publisher A", "history", null);

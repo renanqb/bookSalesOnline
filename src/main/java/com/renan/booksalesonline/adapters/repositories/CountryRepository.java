@@ -5,19 +5,16 @@ import com.renan.booksalesonline.adapters.repositories.mappers.CountryEntityMapp
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.domain.Country;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@AllArgsConstructor
 public class CountryRepository implements DataQuery<Country>, DataCommand<Country> {
 
-    private CountryData countryData;
-
-    public CountryRepository(@Autowired CountryData countryData) {
-        this.countryData = countryData;
-    }
+    private final CountryData countryData;
 
     @Override
     public List<Country> getAll() {

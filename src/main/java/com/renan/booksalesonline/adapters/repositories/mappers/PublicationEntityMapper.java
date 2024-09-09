@@ -37,7 +37,7 @@ public class PublicationEntityMapper {
             return null;
 
         return new PublicationEntity(
-                publication.getId(),
+                (Integer) publication.getId(),
                 publication.getName(),
                 PublisherEntityMapper.fromDomain(publication.getPublisher())
         );

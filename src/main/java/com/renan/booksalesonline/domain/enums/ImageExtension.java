@@ -1,5 +1,8 @@
 package com.renan.booksalesonline.domain.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ImageExtension {
 
     BMP("bmp"),
@@ -16,17 +19,13 @@ public enum ImageExtension {
         this.text = text;
     }
 
-    public String getText() {
-        return text;
-    }
-
     public String getContentType() {
 
         return String.format("image/%s", getText());
     }
 
     public static String getExtensionAcceptedList() {
-        return String.format("%s, %s, %s, %s, %s, %s and %s", ImageExtension.values());
+        return String.format("%s, %s, %s, %s, %s, %s and %s", (Object[]) ImageExtension.values());
     }
 
     @Override

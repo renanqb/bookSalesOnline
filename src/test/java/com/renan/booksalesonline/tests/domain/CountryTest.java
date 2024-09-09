@@ -10,10 +10,10 @@ public class CountryTest {
     @Test
     public void should_create_a_default_country_domain_instance() {
 
-        var country = new Country();
+        var country = new Country(0);
         assertThat((int)country.getId()).isEqualTo(0);
         assertThat(country.getName()).isEqualTo("");
-        assertThat(country.getGentilic()).isEqualTo("");
+        assertThat(country.getNationality()).isEqualTo("");
     }
 
     @Test
@@ -22,7 +22,7 @@ public class CountryTest {
         var country = new Country(99);
         assertThat((int)country.getId()).isEqualTo(99);
         assertThat(country.getName()).isEqualTo("");
-        assertThat(country.getGentilic()).isEqualTo("");
+        assertThat(country.getNationality()).isEqualTo("");
     }
 
     @Test
@@ -31,6 +31,6 @@ public class CountryTest {
         var country = new Country(99, "brazil", "brazilian");
         assertThat((int)country.getId()).isEqualTo(99);
         assertThat(country.getName()).isEqualTo("brazil");
-        assertThat(country.getGentilic()).isEqualTo("brazilian");
+        assertThat(country.getNationality()).isEqualTo("brazilian");
     }
 }

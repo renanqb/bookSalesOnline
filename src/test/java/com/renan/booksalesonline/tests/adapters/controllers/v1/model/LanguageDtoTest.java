@@ -14,4 +14,12 @@ public class LanguageDtoTest {
         assertThat(languageDto.getId()).isEqualTo(0);
         assertThat(languageDto.getName()).isEqualTo("portuguese");
     }
+
+    @Test
+    public void should_create_a_default_language_dto_instance() {
+
+        var languageDto = new LanguageDto();
+        assertThat(languageDto.getId()).isEqualTo(0);
+        assertThat(languageDto.getName()).isNull();
+    }
 }

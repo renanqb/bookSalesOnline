@@ -1,7 +1,14 @@
 package com.renan.booksalesonline.adapters.repositories.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "publication")
 public class PublicationEntity {
@@ -23,37 +30,4 @@ public class PublicationEntity {
     )
     private PublisherEntity publisher;
 
-    protected PublicationEntity() {
-        this(0, "", null);
-    }
-
-    public PublicationEntity(int id, String name, PublisherEntity publisher) {
-        setId(id);
-        setName(name);
-        setPublisher(publisher);
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public PublisherEntity getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(PublisherEntity publisher) {
-        this.publisher = publisher;
-    }
 }

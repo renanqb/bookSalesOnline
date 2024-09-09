@@ -1,29 +1,28 @@
 package com.renan.booksalesonline.domain;
 
 import com.renan.booksalesonline.domain.commom.BaseDomain;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-public class Country extends BaseDomain {
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class Country extends BaseDomain<Integer> {
 
-    private String gentilic;
+    private String nationality;
 
     public Country() {
-        this(0, "", "");
+
+        this(0);
     }
 
     public Country(int id) {
+
         this(id, "", "");
     }
 
-    public Country(int id, String name, String gentilic) {
+    public Country(int id, String name, String nationality) {
+
         super(id, name);
-        setGentilic(gentilic);
-    }
-
-    public String getGentilic() {
-        return gentilic;
-    }
-
-    public void setGentilic(String gentilic) {
-        this.gentilic = gentilic;
+        setNationality(nationality);
     }
 }

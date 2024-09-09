@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="booksalesonline-api" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="11" />
+    <envs>
+      <env name="LOCALSTACK_HOST" value="http://localhost:4566" />
+      <env name="POSTGRES_HOST" value="jdbc:postgresql://localhost:5438/booksalesonline" />
+      <env name="REDIS_HOST" value="localhost" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.renan.booksalesonline.BookSalesOnlineApplication" />
+    <module name="booksalesonline" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

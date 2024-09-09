@@ -18,4 +18,14 @@ public class PublisherEntityTest {
         assertThat(expected.getHistory()).isEqualTo("history");
         assertThat(expected.getCountry()).isNotNull();
     }
+
+    @Test
+    public void should_create_a_default_publisher_entity_instance() {
+
+        var expected = new PublisherEntity();
+        assertThat(expected.getId()).isEqualTo(0);
+        assertThat(expected.getName()).isNull();
+        assertThat(expected.getHistory()).isNull();
+        assertThat(expected.getCountry()).isNull();
+    }
 }

@@ -14,4 +14,12 @@ public class LanguageEntityTest {
         assertThat(expected.getId()).isEqualTo(99);
         assertThat(expected.getName()).isEqualTo("portuguese");
     }
+
+    @Test
+    public void should_create_a_default_language_entity_instance() {
+
+        var expected = new LanguageEntity();
+        assertThat(expected.getId()).isEqualTo(0);
+        assertThat(expected.getName()).isNull();
+    }
 }

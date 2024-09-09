@@ -7,21 +7,15 @@ import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQu
 import com.renan.booksalesonline.domain.Country;
 import com.renan.booksalesonline.domain.Publisher;
 import com.renan.booksalesonline.domain.exceptions.ValidationException;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class RemoveCountryUseCaseImpl implements RemoveCountryUseCase {
 
     private final RepositoryMediator repositoryMediator;
     private final RemoveEntityUseCase removeEntityUseCase;
-
-    public RemoveCountryUseCaseImpl(
-            RepositoryMediator repositoryMediator,
-            RemoveEntityUseCase removeEntityUseCase
-    ) {
-        this.repositoryMediator = repositoryMediator;
-        this.removeEntityUseCase = removeEntityUseCase;
-    }
 
     @Override
     public void execute(int id) throws NoSuchMethodException {

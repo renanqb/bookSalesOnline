@@ -1,10 +1,15 @@
 package com.renan.booksalesonline.domain;
 
 import com.renan.booksalesonline.domain.commom.BaseDomain;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 import java.util.UUID;
 
-public class PublicationImage extends BaseDomain {
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class PublicationImage extends BaseDomain<Integer> {
 
     private String contentUrl;
     private int publicationId;
@@ -36,16 +41,4 @@ public class PublicationImage extends BaseDomain {
         }
         return super.getName();
     }
-
-    public void setContentUrl(String url) {
-        contentUrl = url;
-    }
-
-    public String getContentUrl() { return contentUrl; }
-
-    public void setPublicationId(int publicationId) { this.publicationId = publicationId; }
-
-    public int getPublicationId() { return publicationId; }
-
-    public PublicationImageContent getImageContent() { return imageContent; }
 }

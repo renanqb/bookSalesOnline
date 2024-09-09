@@ -1,25 +1,21 @@
 package com.renan.booksalesonline.adapters.storage;
 
-import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.renan.booksalesonline.application.ports.out.storage.StorageService;
 import com.renan.booksalesonline.domain.PublicationImage;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 @Service
+@AllArgsConstructor
 public class S3StorageService implements StorageService {
 
-    private AmazonS3Client amazonS3Client;
-
-    public S3StorageService(@Autowired AmazonS3Client amazonS3Client) {
-        this.amazonS3Client = amazonS3Client;
-    }
+    private final AmazonS3Client amazonS3Client;
 
     @Override
     public String save(String bucket, PublicationImage publicationImage) throws IOException, URISyntaxException {

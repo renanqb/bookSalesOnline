@@ -6,11 +6,10 @@ import com.renan.booksalesonline.adapters.controllers.v1.model.PublicationImageD
 import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.RemoveEntityUseCase;
-import com.renan.booksalesonline.application.ports.in.usecases.publication.CreatePublicationImageUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.UpdatePublicationImageUseCase;
 import com.renan.booksalesonline.domain.PublicationImage;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,13 +18,10 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @RestController
+@AllArgsConstructor
 public class ImageController {
 
     private final UseCaseMediator mediator;
-
-    public ImageController(@Autowired UseCaseMediator mediator) {
-        this.mediator = mediator;
-    }
 
     @GetMapping("/images/{id}")
     @ResponseStatus(value = HttpStatus.OK)

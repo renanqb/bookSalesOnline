@@ -53,7 +53,7 @@ public class LanguageRepositoryTest {
             var expected = expectedLanguages.get(i);
             var actual = languages.get(i);
 
-            assertThat((int)actual.getId()).isEqualTo((int)expected.getId());
+            assertThat(actual.getId()).isEqualTo(expected.getId());
             assertThat(actual.getName()).isEqualTo(expected.getName());
         }
     }
@@ -67,7 +67,7 @@ public class LanguageRepositoryTest {
         var expectedLanguage = new Language(1, "name1");
         var actualLanguage = languageRepository.getById(1);
 
-        assertThat((int)actualLanguage.getId()).isEqualTo((int)expectedLanguage.getId());
+        assertThat(actualLanguage.getId()).isEqualTo(expectedLanguage.getId());
         assertThat(actualLanguage.getName()).isEqualTo(expectedLanguage.getName());
     }
 
@@ -80,7 +80,7 @@ public class LanguageRepositoryTest {
         var expectedLanguage = new Language(1, "name1");
         var actualLanguage = languageRepository.save(expectedLanguage);
 
-        assertThat((int)actualLanguage.getId()).isEqualTo((int)expectedLanguage.getId());
+        assertThat(actualLanguage.getId()).isEqualTo(expectedLanguage.getId());
         assertThat(actualLanguage.getName()).isEqualTo(expectedLanguage.getName());
     }
 

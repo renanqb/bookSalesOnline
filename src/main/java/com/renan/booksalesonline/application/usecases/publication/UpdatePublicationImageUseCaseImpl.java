@@ -8,6 +8,7 @@ import com.renan.booksalesonline.domain.PublicationImage;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;
 import com.renan.booksalesonline.domain.exceptions.ValidationException;
 import lombok.AllArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,7 @@ public class UpdatePublicationImageUseCaseImpl implements UpdatePublicationImage
 
     @Override
     @Transactional
-    public PublicationImage execute(PublicationImage publicationImage, int id)
+    public PublicationImage execute(@NotNull PublicationImage publicationImage, int id)
             throws IOException, NoSuchMethodException, URISyntaxException, FileExtensionNotAccepted {
 
         assert id > 0;

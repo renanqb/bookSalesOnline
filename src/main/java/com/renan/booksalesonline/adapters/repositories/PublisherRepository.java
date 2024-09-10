@@ -1,11 +1,13 @@
 package com.renan.booksalesonline.adapters.repositories;
 
 import com.renan.booksalesonline.adapters.repositories.data.PublisherData;
+import com.renan.booksalesonline.adapters.repositories.mappers.CountryEntityMapper;
 import com.renan.booksalesonline.adapters.repositories.mappers.PublisherEntityMapper;
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.publisher.PublisherDataQuery;
 import com.renan.booksalesonline.domain.Publisher;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,10 +19,11 @@ public class PublisherRepository implements PublisherDataQuery, DataCommand<Publ
     private final PublisherData publisherData;
 
     @Override
-    public List<Publisher> getAll() {
+    public List<Publisher> getAll(int page, int size) {
 
-        var publisherEntities = publisherData.findAll();
-        return PublisherEntityMapper.toDomain(publisherEntities);
+        var pageRequest = PageRequest.of(page, size);
+        var publisherEntities = publisherData.findAll(pageRequest);
+        return publisherEntities.map(PublisherEntityMapper::toDomain).toList();
     }
 
     @Override

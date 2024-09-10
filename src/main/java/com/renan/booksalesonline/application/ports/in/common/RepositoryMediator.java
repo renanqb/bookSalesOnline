@@ -1,4 +1,4 @@
-package com.renan.booksalesonline.application.ports.in.commom;
+package com.renan.booksalesonline.application.ports.in.common;
 
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;

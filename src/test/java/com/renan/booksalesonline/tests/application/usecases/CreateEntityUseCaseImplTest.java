@@ -1,7 +1,6 @@
 package com.renan.booksalesonline.tests.application.usecases;
 
-import com.renan.booksalesonline.adapters.controllers.v1.model.CountryDto;
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.usecases.CreateEntityUseCaseImpl;
 import com.renan.booksalesonline.domain.Country;

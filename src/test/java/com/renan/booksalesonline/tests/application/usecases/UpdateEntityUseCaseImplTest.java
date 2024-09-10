@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.tests.application.usecases;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.application.usecases.UpdateEntityUseCaseImpl;
@@ -38,7 +38,7 @@ public class UpdateEntityUseCaseImplTest {
             return inputEntity;
         });
 
-        var outputEntity = updateEntityUseCaseImpl.execute(Country.class, inputEntity, 1);
+        var outputEntity = updateEntityUseCaseImpl.execute(Country.class, inputEntity, -1);
         assertThat(outputEntity).isEqualTo(inputEntity);
     }
 

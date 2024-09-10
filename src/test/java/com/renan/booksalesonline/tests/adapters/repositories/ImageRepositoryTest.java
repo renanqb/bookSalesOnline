@@ -33,7 +33,7 @@ public class ImageRepositoryTest {
     @Test
     public void should_throw_not_implemented_exception_when_get_all() {
 
-        assertThrows(UnsupportedOperationException.class, () -> imageRepository.getAll());
+        assertThrows(UnsupportedOperationException.class, () -> imageRepository.getAll(1, 50));
     }
 
     @Test

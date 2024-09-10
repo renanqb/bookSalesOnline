@@ -1,19 +1,17 @@
 package com.renan.booksalesonline.domain;
 
 import com.renan.booksalesonline.domain.commom.BaseDomain;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Country extends BaseDomain<Integer> {
+public class Country extends BaseDomain {
 
     private String nationality;
-
-    public Country() {
-
-        this(0);
-    }
 
     public Country(int id) {
 

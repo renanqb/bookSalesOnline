@@ -1,4 +1,4 @@
-package com.renan.booksalesonline.application.ports.in.commom;
+package com.renan.booksalesonline.application.ports.in.common;
 
 public interface UseCaseMediator {
 

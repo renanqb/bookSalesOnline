@@ -34,7 +34,7 @@ public class ImageRepository implements ImageDataQuery, DataCommand<PublicationI
     }
 
     @Override
-    public List<PublicationImage> getAll() {
+    public List<PublicationImage> getAll(int page, int size) {
         throw new UnsupportedOperationException();
     }
 

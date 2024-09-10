@@ -1,7 +1,7 @@
 package com.renan.booksalesonline.application.usecases;
 
 import com.renan.booksalesonline.application.ports.in.usecases.GetAllEntitiesUseCase;
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,6 @@ public class GetAllEntitiesUseCaseImpl implements GetAllEntitiesUseCase {
     @Override
     public <T> List<T> execute(Class<T> clazz) throws NoSuchMethodException {
 
-        return mediator.getQuery(clazz).getAll();
+        return mediator.getQuery(clazz).getAll(0, 20);
     }
 }

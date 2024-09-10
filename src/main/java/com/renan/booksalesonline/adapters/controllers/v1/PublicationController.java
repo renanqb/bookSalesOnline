@@ -2,7 +2,7 @@ package com.renan.booksalesonline.adapters.controllers.v1;
 
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublicationImageDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.PublicationImageDto;
-import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.common.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.GetAllPublicationImagesUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.CreatePublicationImageUseCase;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;

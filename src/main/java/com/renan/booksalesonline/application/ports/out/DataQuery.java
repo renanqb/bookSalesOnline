@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DataQuery<T> extends DataCommandQuery {
 
-    List<T> getAll();
+    List<T> getAll(int page, int size);
 
     T getById(int id);
 }

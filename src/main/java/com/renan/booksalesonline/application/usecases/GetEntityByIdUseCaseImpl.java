@@ -1,7 +1,7 @@
 package com.renan.booksalesonline.application.usecases;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;

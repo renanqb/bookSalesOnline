@@ -3,7 +3,7 @@ package com.renan.booksalesonline.adapters.controllers.v1;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.PublisherDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.PublisherDto;
-import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.common.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.GetAllEntitiesUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.publisher.CreatePublisherUseCase;

@@ -6,6 +6,7 @@ import com.renan.booksalesonline.application.ports.out.DataCommand;
 import com.renan.booksalesonline.application.ports.out.DataQuery;
 import com.renan.booksalesonline.domain.Language;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,10 +18,11 @@ public class LanguageRepository implements DataQuery<Language>, DataCommand<Lang
     private final LanguageData languageData;
 
     @Override
-    public List<Language> getAll() {
+    public List<Language> getAll(int page, int size) {
 
-        var languageEntities = languageData.findAll();
-        return LanguageEntityMapper.toDomain(languageEntities);
+        var pageRequest = PageRequest.of(page, size);
+        var languageEntities = languageData.findAll(pageRequest);
+        return languageEntities.map(LanguageEntityMapper::toDomain).toList();
     }
 
     @Override

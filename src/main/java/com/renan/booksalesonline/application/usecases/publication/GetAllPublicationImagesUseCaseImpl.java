@@ -1,6 +1,6 @@
 package com.renan.booksalesonline.application.usecases.publication;
 
-import com.renan.booksalesonline.application.ports.in.commom.RepositoryMediator;
+import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.publication.GetAllPublicationImagesUseCase;
 import com.renan.booksalesonline.application.ports.out.image.ImageDataQuery;
 import com.renan.booksalesonline.domain.PublicationImage;

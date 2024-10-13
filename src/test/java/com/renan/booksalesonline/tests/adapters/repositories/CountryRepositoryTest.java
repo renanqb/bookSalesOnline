@@ -9,6 +9,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -34,7 +36,8 @@ public class CountryRepositoryTest {
                 new CountryEntity(2, "name2", "gentilic2"),
                 new CountryEntity(3, "name3", "gentilic3")
         );
-        when(countryData.findAll()).thenReturn(countryEntities);
+        var countryEntitiesPage = new PageImpl<>(countryEntities);
+        when(countryData.findAll(any(PageRequest.class))).thenReturn(countryEntitiesPage);
 
         var expectedCountries = Arrays.asList(
                 new Country(1, "name1", "gentilic1"),
@@ -42,7 +45,7 @@ public class CountryRepositoryTest {
                 new Country(3, "name3", "gentilic3")
         );
 
-        var countries = countryRepository.getAll();
+        var countries = countryRepository.getAll(0, 20);
 
         for (int i = 0; i < 3; i++) {
             var expected = expectedCountries.get(i);

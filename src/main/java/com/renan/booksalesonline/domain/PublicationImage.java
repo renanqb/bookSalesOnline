@@ -4,12 +4,13 @@ import com.renan.booksalesonline.domain.commom.BaseDomain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class PublicationImage extends BaseDomain<Integer> {
+public class PublicationImage extends BaseDomain {
 
     private String contentUrl;
     private int publicationId;

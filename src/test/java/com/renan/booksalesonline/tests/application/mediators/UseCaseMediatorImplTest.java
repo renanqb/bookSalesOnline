@@ -1,7 +1,7 @@
 package com.renan.booksalesonline.tests.application.mediators;
 
 import com.renan.booksalesonline.application.mediators.UseCaseMediatorImpl;
-import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.common.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.application.ports.in.usecases.country.GetPublishersByCountryUseCase;
 import com.renan.booksalesonline.application.ports.in.usecases.country.RemoveCountryUseCase;

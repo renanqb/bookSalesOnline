@@ -12,9 +12,9 @@ public class PublisherTest {
     public void should_create_a_default_publisher_domain_instance() {
 
         var publisher = new Publisher();
-        assertThat((int)publisher.getId()).isEqualTo(0);
+        assertThat(publisher.getId()).isEqualTo(0);
         assertThat(publisher.getName()).isEqualTo("");
-        assertThat(publisher.getHistory()).isEqualTo("");
+        assertThat(publisher.getHistory()).isNull();
         assertThat(publisher.getCountry()).isNull();
     }
 

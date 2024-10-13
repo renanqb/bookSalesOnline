@@ -3,7 +3,7 @@ package com.renan.booksalesonline.adapters.controllers.v1;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.adapters.controllers.v1.mappers.LanguageDtoMapper;
 import com.renan.booksalesonline.adapters.controllers.v1.model.LanguageDto;
-import com.renan.booksalesonline.application.ports.in.commom.UseCaseMediator;
+import com.renan.booksalesonline.application.ports.in.common.UseCaseMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.*;
 import com.renan.booksalesonline.domain.Language;
 import lombok.AllArgsConstructor;

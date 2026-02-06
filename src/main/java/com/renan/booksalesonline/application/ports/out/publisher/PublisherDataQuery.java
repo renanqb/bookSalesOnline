@@ -8,5 +8,5 @@ import java.util.List;
 public interface PublisherDataQuery extends DataQuery<Publisher> {
 
     boolean existsPublisherByCountryId(int countryId);
-    List<Publisher> getPublishersByCountryId(int countryId);
+    List<Publisher> getPublishersByCountryId(int countryId, int page, int size);
 }

@@ -59,9 +59,10 @@ public class PublisherRepository implements PublisherDataQuery, DataCommand<Publ
     }
 
     @Override
-    public List<Publisher> getPublishersByCountryId(int countryId) {
+    public List<Publisher> getPublishersByCountryId(int countryId, int page, int size) {
 
-        var publisherEntities = publisherData.getPublishersByCountryId(countryId);
+        var pageRequest = PageRequest.of(page, size);
+        var publisherEntities = publisherData.getPublishersByCountryId(countryId, pageRequest);
         return PublisherEntityMapper.toDomain(publisherEntities);
     }
 }

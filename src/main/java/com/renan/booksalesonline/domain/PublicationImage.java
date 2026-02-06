@@ -6,14 +6,18 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class PublicationImage extends BaseDomain {
 
+    @NotBlank
     private String contentUrl;
+
     private int publicationId;
+
     private PublicationImageContent imageContent;
 
     public PublicationImage(int id, String name, String url, int publicationId) {

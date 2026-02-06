@@ -2,10 +2,15 @@ package com.renan.booksalesonline.domain.commom;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Data
 public abstract class BaseDomain {
 
     private int id;
+
+    @NotBlank
     private String name;
 
     public BaseDomain() {

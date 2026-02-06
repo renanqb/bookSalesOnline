@@ -19,6 +19,6 @@ public class GetPublishersByCountryUseCaseImpl implements GetPublishersByCountry
     public List<Publisher> execute(int countryId) throws NoSuchMethodException {
 
         var query = (PublisherDataQuery) repositoryMediator.getQuery(Publisher.class);
-        return query.getPublishersByCountryId(countryId);
+        return query.getPublishersByCountryId(countryId, 0, 20);
     }
 }

@@ -34,7 +34,8 @@ public class GetPublishersByCountryUseCaseImplTest {
         );
 
         when(repositoryMediator.getQuery(Publisher.class)).thenReturn(publisherDataQuery);
-        when(publisherDataQuery.getPublishersByCountryId(anyInt())).thenReturn(expectedPublishers);
+        when(publisherDataQuery.getPublishersByCountryId(anyInt(), anyInt(), anyInt()))
+                .thenReturn(expectedPublishers);
 
         assertThat(getPublishersByCountryUseCase.execute(1)).isEqualTo(expectedPublishers);
     }

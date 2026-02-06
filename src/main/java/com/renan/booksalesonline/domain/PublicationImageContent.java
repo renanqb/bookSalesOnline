@@ -4,6 +4,7 @@ import com.renan.booksalesonline.domain.enums.ImageExtension;
 import com.renan.booksalesonline.domain.exceptions.FileExtensionNotAccepted;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -13,8 +14,11 @@ import java.util.Locale;
 @Data
 public class PublicationImageContent {
 
+    @NotBlank
     private String contentName;
+
     private long contentLength;
+
     private InputStream contentStream;
 
     public PublicationImageContent(

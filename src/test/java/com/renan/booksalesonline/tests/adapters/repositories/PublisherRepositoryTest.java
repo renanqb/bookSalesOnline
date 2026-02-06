@@ -11,7 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -124,14 +123,15 @@ public class PublisherRepositoryTest {
         var publisherEntities = List.of(
                 new PublisherEntity(1, "name1", "history1", countryEntity)
         );
-        when(publisherData.getPublishersByCountryId(anyInt())).thenReturn(publisherEntities);
+        when(publisherData.getPublishersByCountryId(anyInt(), any(Pageable.class)))
+                .thenReturn(publisherEntities);
 
         var country = new Country(1, "name", "gentilic");
         var expectedPublishers = List.of(
                 new Publisher(1, "name1", "history1", country)
         );
 
-        var publishers = publisherRepository.getPublishersByCountryId(1);
+        var publishers = publisherRepository.getPublishersByCountryId(1, 0, 20);
         var expected = expectedPublishers.get(0);
         var actual = publishers.get(0);
 

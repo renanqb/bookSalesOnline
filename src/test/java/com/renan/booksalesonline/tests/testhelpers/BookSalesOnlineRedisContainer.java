@@ -15,7 +15,8 @@ public class BookSalesOnlineRedisContainer extends GenericContainer<BookSalesOnl
     public static BookSalesOnlineRedisContainer getInstance() {
 
         if (container == null) {
-            container = new BookSalesOnlineRedisContainer().withExposedPorts(6379);
+            container = new BookSalesOnlineRedisContainer()
+                    .withExposedPorts(6379);
             container.start();
         }
         return container;

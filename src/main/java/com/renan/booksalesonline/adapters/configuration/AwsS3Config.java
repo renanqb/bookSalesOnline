@@ -7,13 +7,15 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.renan.booksalesonline.adapters.configuration.model.AwsConfigProperties;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class AwsS3Config {
 
-    @Bean
+    @Bean(name = "amazonS3Client")
+    @ConditionalOnMissingBean(AmazonS3Client.class)
     public AmazonS3Client amazonS3(@Autowired AwsConfigProperties awsConfigProperties) {
 
         var awsRegion = awsConfigProperties.awsRegion;

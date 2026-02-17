@@ -11,19 +11,18 @@ import jakarta.validation.constraints.NotBlank;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Country extends BaseDomain {
+public class Subject extends BaseDomain {
 
     @NotBlank
-    private String nationality;
+    private String description;
 
-    public Country(int id) {
-
+    public Subject(int id) {
         this(id, "", "");
     }
 
-    public Country(int id, String name, String nationality) {
-
+    public Subject(int id, String name, String description) {
         super(id, name);
-        setNationality(nationality);
+        setDescription(description);
     }
 }
+

@@ -2,7 +2,6 @@ package com.renan.booksalesonline.application.ports.in.usecases;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
-import java.util.List;
 
 public interface GetEntityByIdUseCase {
 

@@ -28,18 +28,22 @@ public class RepositoryMediatorImpl implements RepositoryMediator {
             @Autowired DataQuery<Language> languageQuery,
             @Autowired DataCommand<Language> languageCommand,
             @Autowired ImageDataQuery imageQuery,
-            @Autowired DataCommand<PublicationImage> imageCommand) {
+            @Autowired DataCommand<PublicationImage> imageCommand,
+            @Autowired DataQuery<Subject> subjectQuery,
+            @Autowired DataCommand<Subject> subjectCommand) {
 
         queries.put(Country.class, countryQuery);
         queries.put(Publisher.class, publisherQuery);
         queries.put(Publication.class, publicationDataQuery);
         queries.put(Language.class, languageQuery);
         queries.put(PublicationImage.class, imageQuery);
+        queries.put(Subject.class, subjectQuery);
 
         commands.put(Country.class, countryCommand);
         commands.put(Publisher.class, publisherCommand);
         commands.put(Language.class, languageCommand);
         commands.put(PublicationImage.class, imageCommand);
+        commands.put(Subject.class, subjectCommand);
     }
 
     @Override

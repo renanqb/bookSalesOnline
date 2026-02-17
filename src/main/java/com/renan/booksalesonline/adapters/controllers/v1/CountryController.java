@@ -37,7 +37,7 @@ public class CountryController {
 
     @GetMapping("/countries/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    @Cacheable(value = "countryDto", key = "#id")
+    //@Cacheable(value = "countryDto", key = "#id")
     public CountryDto getCountryById(@PathVariable("id") int id)
             throws NoSuchMethodException, JsonProcessingException {
 

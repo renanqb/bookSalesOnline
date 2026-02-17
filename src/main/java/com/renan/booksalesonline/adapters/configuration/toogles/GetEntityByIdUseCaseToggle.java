@@ -1,23 +1,9 @@
-package com.renan.booksalesonline.adapters.configuration.toogles;
-
-import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
-import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
-import com.renan.booksalesonline.application.usecases.GetEntityByIdUseCaseImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class GetEntityByIdUseCaseToggle {
-
-    @Bean
-    @ConditionalOnProperty(name = "features.cache.experimental", havingValue = "false")
-    public GetEntityByIdUseCase getEntityByIdFromDatabase(
-            @Autowired RepositoryMediator mediator) {
-
-        System.out.println("features.cache.experimental=false");
-
-        return new GetEntityByIdUseCaseImpl(mediator);
-    }
-}
+/*
+ * DEPRECATED - Esta classe foi removida em favor de @Service no GetEntityByIdUseCaseImpl
+ *
+ * Antes: GetEntityByIdUseCaseToggle criava um @Bean de GetEntityByIdUseCase com feature flag
+ * Agora: GetEntityByIdUseCaseImpl possui @Service e é injetado automaticamente
+ *
+ * O feature flag features.cache.experimental agora é controlado em GetEntityByIdUseCaseImpl
+ * se necessário usar lógica condicional.
+ */

@@ -5,7 +5,9 @@ import com.renan.booksalesonline.application.ports.in.common.RepositoryMediator;
 import com.renan.booksalesonline.application.ports.in.usecases.GetEntityByIdUseCase;
 import com.renan.booksalesonline.domain.exceptions.NotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @AllArgsConstructor
 public class GetEntityByIdUseCaseImpl implements GetEntityByIdUseCase {
 

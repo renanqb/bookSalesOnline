@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +24,7 @@ public class PublisherEntity {
     @Column(name = "history", nullable = false)
     private String history;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_country", referencedColumnName = "id")
     private CountryEntity country;
 

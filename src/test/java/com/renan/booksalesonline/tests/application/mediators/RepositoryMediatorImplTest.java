@@ -35,6 +35,8 @@ public class RepositoryMediatorImplTest {
                 null,
                 null,
                 null,
+                null,
+                null,
                 null
         );
     }

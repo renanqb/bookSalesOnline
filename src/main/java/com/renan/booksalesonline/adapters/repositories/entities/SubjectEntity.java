@@ -10,8 +10,8 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "country")
-public class CountryEntity {
+@Table(name = "subject")
+public class SubjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class CountryEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "gentilic", nullable = false)
-    private String nationality;
-
+    @Column(name = "description", nullable = false)
+    private String description;
 }
+

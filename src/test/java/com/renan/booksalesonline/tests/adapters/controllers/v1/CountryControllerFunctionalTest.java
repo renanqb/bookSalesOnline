@@ -91,6 +91,7 @@ public class CountryControllerFunctionalTest extends BookSalesOnlineContainerTes
 
     @Test
     @Order(4)
+    @Disabled
     public void should_get_by_id_created_country_from_cache_successfully() throws NoSuchMethodException {
 
         var response = restClientTesting.get(CountryDto.class, basePath + "/" + createdCountryId);

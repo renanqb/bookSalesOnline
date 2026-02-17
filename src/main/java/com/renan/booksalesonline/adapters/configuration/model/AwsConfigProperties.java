@@ -1,9 +1,9 @@
 package com.renan.booksalesonline.adapters.configuration.model;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class AwsConfigProperties {
 
     @Value("${aws.region}") public String awsRegion;
